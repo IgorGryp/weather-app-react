@@ -9,6 +9,8 @@ function App() {
   const [location, setLocation] = useState('');
   const isDataEmpty = Object.keys(data).length === 0;
 
+  let localDate = 0;
+
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
     navigator.geolocation &&
@@ -44,15 +46,13 @@ function App() {
   };
 
   // Gets local date end time
-  const localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
-  const localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
-  const localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
-  const localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
+  let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
+  localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
+  let localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
+  let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
   // Doesn't use getUTCMinutes() because of showing wrong time
-  const localMinutes = new Date(
-    (data.dt + data.timezone) * 1000
-  ).getUTCMinutes();
-  // const localMinutes = new Date().getMinutes();
+  let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
+  // let localMinutes = new Date().getMinutes();
 
   /* **************************************************************************************************** */
 
@@ -80,14 +80,19 @@ function App() {
               <p>{data.name}</p>
               {data.sys ? <p>, {data.sys.country}</p> : null}
             </div>
+
             <div className='date-time'>
-              <p className='date'>
-                {weekdays[localDay]}, {months[localMonth]} {localDate}
-              </p>
-              <p className='time'>
-                {localHours < 10 ? '0' + localHours : '' + localHours}:
-                {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
-              </p>
+              {isNaN(localDate) ? null : (
+                <p className='date'>
+                  {weekdays[localDay]}, {months[localMonth]} {localDate}
+                </p>
+              )}
+              {isNaN(localHours) || isNaN(localMinutes) ? null : (
+                <p className='time'>
+                  {localHours < 10 ? '0' + localHours : '' + localHours}:
+                  {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
+                </p>
+              )}
             </div>
 
             <div className='temp-icon'>
