@@ -123,6 +123,7 @@ function App() {
           </section>
 
           {/* ********** BOTTOM-SECTION ********** */}
+
           {data.name !== undefined && (
             <section className='bottom-section'>
               <div className='humidity'>
@@ -131,12 +132,14 @@ function App() {
                 ) : null}
                 <p>Humidity</p>
               </div>
+
               <div className='pressure'>
                 {data.main ? (
                   <p className='bold'>{data.main.pressure} mb</p>
                 ) : null}
                 <p>Pressure</p>
               </div>
+
               <div className='wind'>
                 {data.wind ? (
                   <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
