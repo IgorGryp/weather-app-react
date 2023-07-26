@@ -179,7 +179,7 @@ h1 {
 
 @media screen and (max-width: 425px) {
   .content {
-    top: 20px;
+    top: 24px;
   }
   .temp h1 {
     font-size: 2.6rem;

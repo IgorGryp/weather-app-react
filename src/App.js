@@ -4,32 +4,38 @@ import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 
 function App() {
-  const [API_URL, setAPI_URL] = useState('');
+  /* const [API_URL, setAPI_URL] = useState(''); */
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const isDataEmpty = Object.keys(data).length === 0;
-
-  let localDate = 0;
 
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
     navigator.geolocation &&
       navigator.geolocation.getCurrentPosition((position) => {
-        setAPI_URL(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
-          /* `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}` */
-        );
+        axios
+          .get(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
+            /* `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}` */
+          )
+          .then((response) => {
+            setData(response.data);
+            console.log('setData state 1');
+          });
       });
+    console.log('setAPI_URL state');
     // eslint-disable-next-line
   }, []);
 
   // GET request for data for the user's current position
-  useEffect(() => {
-    axios.get(API_URL).then((response) => {
-      setData(response.data);
-      console.log(response.data);
-    });
-  }, [API_URL]);
+  /* useEffect(() => {
+    API_URL !== '' &&
+      axios.get(API_URL).then((response) => {
+        setData(response.data);
+        console.log('setData state 1');
+      });
+  }, [API_URL]); */
+  /* console.log('RENDER'); */
 
   // Gets data for entered location from API and sets the response data to the state
   const searchLocation = (event) => {
@@ -40,18 +46,20 @@ function App() {
         )
         .then((response) => {
           setData(response.data);
+          /* console.log('setData state 2'); */
         });
       setLocation('');
+      /* console.log('setLocation state'); */
     }
   };
 
   // Gets local date end time
   let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
-  localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
+  let localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
   let localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
   let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
-  // Doesn't use getUTCMinutes() because of showing wrong time
   let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
+  // Doesn't use getUTCMinutes() because of showing wrong time
   // let localMinutes = new Date().getMinutes();
 
   /* **************************************************************************************************** */
@@ -59,6 +67,7 @@ function App() {
   return (
     <div className='App'>
       {/* ********** SEARCH BAR ********** */}
+
       <section className='search-bar'>
         <input
           value={location}
@@ -73,8 +82,12 @@ function App() {
       {isDataEmpty ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
+        // <div>
+        //   <p>No data available.</p>
+        // </div>
         <div className='content'>
           {/* ********** TOP-SECTION ********** */}
+
           <section className='top-section'>
             <div className='location'>
               <p>{data.name}</p>
