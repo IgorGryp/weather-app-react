@@ -109,6 +109,10 @@ h1 {
   align-items: center;
 }
 
+.icon {
+  width: 4.2rem;
+}
+
 .description-feels-like {
   display: flex;
   align-items: center;
