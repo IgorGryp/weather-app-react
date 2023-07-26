@@ -39,10 +39,13 @@ function App() {
         )
         .then((response) => {
           setData(response.data);
-          /* console.log('setData state 2'); */
+        })
+        .catch((error) => {
+          // TODO: Fix better user error message
+          alert('Network Error');
+          console.error('API call error:', error);
         });
       setLocation('');
-      /* console.log('setLocation state'); */
     }
   };
 
@@ -52,6 +55,7 @@ function App() {
   let localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
   let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
   let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
+
   // Doesn't use getUTCMinutes() because of showing wrong time
   // let localMinutes = new Date().getMinutes();
 
@@ -83,46 +87,46 @@ function App() {
           <section className='top-section'>
             <div className='location'>
               <p>{data.name}</p>
-              {data.sys ? <p>, {data.sys.country}</p> : null}
+              {data.sys && <p>, {data.sys.country}</p>}
             </div>
 
             <div className='date-time'>
-              {isNaN(localDate) ? null : (
+              {
                 <p className='date'>
                   {weekdays[localDay]}, {months[localMonth]} {localDate}
                 </p>
-              )}
-              {isNaN(localHours) || isNaN(localMinutes) ? null : (
+              }
+              {
                 <p className='time'>
                   {localHours < 10 ? '0' + localHours : '' + localHours}:
                   {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
                 </p>
-              )}
+              }
             </div>
 
             <div className='temp-icon'>
               <div className='temp'>
-                {data.main ? <h1>{data.main.temp.toFixed()} °C</h1> : null}
+                {data.main && <h1>{data.main.temp.toFixed()} °C</h1>}
               </div>
               <div className='icon-div'>
-                {data.weather ? (
+                {data.weather && (
                   <img
                     className='icon'
                     src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                     alt='weather icon'
                   ></img>
-                ) : null}
+                )}
               </div>
               <div className='description'>
-                {data.weather ? <p>{data.weather[0].description}</p> : null}
+                {data.weather && <p>{data.weather[0].description}</p>}
               </div>
             </div>
 
             <div className='description-feels-like'>
               <div className='feels-like'>
-                {data.main ? (
+                {data.main && (
                   <p>Feels like {data.main.feels_like.toFixed()} °C</p>
-                ) : null}
+                )}
               </div>
             </div>
           </section>
@@ -132,23 +136,19 @@ function App() {
           {data.name !== undefined && (
             <section className='bottom-section'>
               <div className='humidity'>
-                {data.main ? (
-                  <p className='bold'>{data.main.humidity} %</p>
-                ) : null}
+                {data.main && <p className='bold'>{data.main.humidity} %</p>}
                 <p>Humidity</p>
               </div>
 
               <div className='pressure'>
-                {data.main ? (
-                  <p className='bold'>{data.main.pressure} mb</p>
-                ) : null}
+                {data.main && <p className='bold'>{data.main.pressure} mb</p>}
                 <p>Pressure</p>
               </div>
 
               <div className='wind'>
-                {data.wind ? (
+                {data.wind && (
                   <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
-                ) : null}
+                )}
                 <p>Wind</p>
               </div>
             </section>
