@@ -79,90 +79,90 @@ function App() {
       </section>
 
       {/* {Object.keys(data).length === 0 ?  */}
-      {isDataEmpty ? (
+      {/* {isDataEmpty ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
-      ) : (
-        // <div>
-        //   <p>No data available.</p>
-        // </div>
-        <div className='content'>
-          {/* ********** TOP-SECTION ********** */}
+      ) : ( */}
+      {/* <div>
+        <p>No data available.</p>
+      </div> */}
+      <div className='content'>
+        {/* ********** TOP-SECTION ********** */}
 
-          <section className='top-section'>
-            <div className='location'>
-              <p>{data.name}</p>
-              {data.sys ? <p>, {data.sys.country}</p> : null}
+        <section className='top-section'>
+          <div className='location'>
+            <p>{data.name}</p>
+            {data.sys ? <p>, {data.sys.country}</p> : null}
+          </div>
+
+          <div className='date-time'>
+            {isNaN(localDate) ? null : (
+              <p className='date'>
+                {weekdays[localDay]}, {months[localMonth]} {localDate}
+              </p>
+            )}
+            {isNaN(localHours) || isNaN(localMinutes) ? null : (
+              <p className='time'>
+                {localHours < 10 ? '0' + localHours : '' + localHours}:
+                {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
+              </p>
+            )}
+          </div>
+
+          <div className='temp-icon'>
+            <div className='temp'>
+              {data.main ? <h1>{data.main.temp.toFixed()} °C</h1> : null}
+            </div>
+            <div className='icon-div'>
+              {data.weather ? (
+                <img
+                  className='icon'
+                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  alt='weather icon'
+                ></img>
+              ) : null}
+            </div>
+            <div className='description'>
+              {data.weather ? <p>{data.weather[0].description}</p> : null}
+            </div>
+          </div>
+
+          <div className='description-feels-like'>
+            <div className='feels-like'>
+              {data.main ? (
+                <p>Feels like {data.main.feels_like.toFixed()} °C</p>
+              ) : null}
+            </div>
+          </div>
+        </section>
+
+        {/* ********** BOTTOM-SECTION ********** */}
+
+        {data.name !== undefined && (
+          <section className='bottom-section'>
+            <div className='humidity'>
+              {data.main ? (
+                <p className='bold'>{data.main.humidity} %</p>
+              ) : null}
+              <p>Humidity</p>
             </div>
 
-            <div className='date-time'>
-              {isNaN(localDate) ? null : (
-                <p className='date'>
-                  {weekdays[localDay]}, {months[localMonth]} {localDate}
-                </p>
-              )}
-              {isNaN(localHours) || isNaN(localMinutes) ? null : (
-                <p className='time'>
-                  {localHours < 10 ? '0' + localHours : '' + localHours}:
-                  {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
-                </p>
-              )}
+            <div className='pressure'>
+              {data.main ? (
+                <p className='bold'>{data.main.pressure} mb</p>
+              ) : null}
+              <p>Pressure</p>
             </div>
 
-            <div className='temp-icon'>
-              <div className='temp'>
-                {data.main ? <h1>{data.main.temp.toFixed()} °C</h1> : null}
-              </div>
-              <div className='icon-div'>
-                {data.weather ? (
-                  <img
-                    className='icon'
-                    src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                    alt='weather icon'
-                  ></img>
-                ) : null}
-              </div>
-              <div className='description'>
-                {data.weather ? <p>{data.weather[0].description}</p> : null}
-              </div>
-            </div>
-
-            <div className='description-feels-like'>
-              <div className='feels-like'>
-                {data.main ? (
-                  <p>Feels like {data.main.feels_like.toFixed()} °C</p>
-                ) : null}
-              </div>
+            <div className='wind'>
+              {data.wind ? (
+                <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
+              ) : null}
+              <p>Wind</p>
             </div>
           </section>
-
-          {/* ********** BOTTOM-SECTION ********** */}
-
-          {data.name !== undefined && (
-            <section className='bottom-section'>
-              <div className='humidity'>
-                {data.main ? (
-                  <p className='bold'>{data.main.humidity} %</p>
-                ) : null}
-                <p>Humidity</p>
-              </div>
-
-              <div className='pressure'>
-                {data.main ? (
-                  <p className='bold'>{data.main.pressure} mb</p>
-                ) : null}
-                <p>Pressure</p>
-              </div>
-
-              <div className='wind'>
-                {data.wind ? (
-                  <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
-                ) : null}
-                <p>Wind</p>
-              </div>
-            </section>
-          )}
-        </div>
-      )}
+        )}
+      </div>
+      {/* )} */}
     </div>
   );
 }
