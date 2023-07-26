@@ -7,7 +7,7 @@ function App() {
   /* const [API_URL, setAPI_URL] = useState(''); */
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
-  const isDataEmpty = Object.keys(data).length === 0;
+  /* const isDataEmpty = Object.keys(data).length === 0; */
 
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
@@ -78,8 +78,7 @@ function App() {
         />
       </section>
 
-      {/* {Object.keys(data).length === 0 ?  */}
-      {isDataEmpty ? (
+      {Object.keys(data).length === 0 ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
         // <div>
