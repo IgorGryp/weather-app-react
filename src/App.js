@@ -4,10 +4,8 @@ import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 
 function App() {
-  /* const [API_URL, setAPI_URL] = useState(''); */
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
-  /* const isDataEmpty = Object.keys(data).length === 0; */
 
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
@@ -16,26 +14,21 @@ function App() {
         axios
           .get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
-            /* `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}` */
           )
           .then((response) => {
+            console.log(response.data);
             setData(response.data);
-            console.log('setData state 1');
+          })
+          .catch((error) => {
+            // TODO: Fix better user error message
+            alert('Network Error');
+            console.error('API call error:', error);
           });
       });
-    console.log('setAPI_URL state');
     // eslint-disable-next-line
   }, []);
 
-  // GET request for data for the user's current position
-  /* useEffect(() => {
-    API_URL !== '' &&
-      axios.get(API_URL).then((response) => {
-        setData(response.data);
-        console.log('setData state 1');
-      });
-  }, [API_URL]); */
-  /* console.log('RENDER'); */
+  console.log(data.name);
 
   // Gets data for entered location from API and sets the response data to the state
   const searchLocation = (event) => {
