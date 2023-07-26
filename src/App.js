@@ -78,9 +78,6 @@ function App() {
       {Object.keys(data).length === 0 ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
-        // <div>
-        //   <p>No data available.</p>
-        // </div>
         <div className='content'>
           {/* ********** TOP-SECTION ********** */}
 
