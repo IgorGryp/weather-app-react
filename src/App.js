@@ -21,12 +21,11 @@ function App() {
           })
           .catch((error) => {
             // TODO: Fix better user error message
-            alert('Network Error');
             console.error('API call error:', error);
           });
       });
     // eslint-disable-next-line
-  }, []);
+  }, [setData]);
 
   console.log(data.name);
 
@@ -42,7 +41,6 @@ function App() {
         })
         .catch((error) => {
           // TODO: Fix better user error message
-          alert('Network Error');
           console.error('API call error:', error);
         });
       setLocation('');
