@@ -10,20 +10,25 @@ function App() {
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
     navigator.geolocation &&
-      navigator.geolocation.getCurrentPosition((position) => {
-        axios
-          .get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
-          )
-          .then((response) => {
-            console.log(response.data);
-            setData(response.data);
-          })
-          .catch((error) => {
-            // TODO: Fix better user error message
-            console.error('API call error:', error);
-          });
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          axios
+            .get(
+              `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
+            )
+            .then((response) => {
+              console.log(response.data);
+              setData(response.data);
+            })
+            .catch((error) => {
+              // TODO: Fix better user error message
+              console.error('API call error:', error);
+            });
+        },
+        (error) => {
+          alert('Error getting user location:', error);
+        }
+      );
     // eslint-disable-next-line
   }, []);
 
@@ -72,10 +77,6 @@ function App() {
           type='text'
         />
       </section>
-
-      {/* Object.keys(data).length === 0 ? (
-        <PuffLoader color={'#ffffff'} size={200} className='loader' />
-      ) */}
 
       {Object.keys(data).length === 0 ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
