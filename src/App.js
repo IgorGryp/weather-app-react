@@ -7,12 +7,6 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
 
-  let localDay = 0;
-  let localDate = 0;
-  let localMonth = 0;
-  let localHours = 0;
-  let localMinutes = 0;
-
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
     navigator.geolocation &&
@@ -54,14 +48,11 @@ function App() {
   };
 
   // Gets local date end time
-  if (Object.keys(data).length !== 0) {
-    localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
-    localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
-    localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
-    localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
-    localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
-    console.log('Data Fetched');
-  } else console.log('Data  NOT Fetched');
+  let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
+  let localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
+  let localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
+  let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
+  let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
 
   // Doesn't use getUTCMinutes() because of showing wrong time
   // let localMinutes = new Date().getMinutes();
@@ -89,6 +80,7 @@ function App() {
       {data ? (
         <div className='content'>
           {/* ********** TOP-SECTION ********** */}
+          {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
 
           <section className='top-section'>
             <div className='location'>
@@ -138,6 +130,7 @@ function App() {
           </section>
 
           {/* ********** BOTTOM-SECTION ********** */}
+          {/* Humidity - Pressure - Wind */}
 
           {data.name !== undefined && (
             <section className='bottom-section'>
