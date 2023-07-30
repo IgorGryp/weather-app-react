@@ -82,9 +82,11 @@ function App() {
         />
       </section>
 
-      {Object.keys(data).length === 0 ? (
+      {/* Object.keys(data).length === 0 ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
-      ) : (
+      ) */}
+
+      {data ? (
         <div className='content'>
           {/* ********** TOP-SECTION ********** */}
 
@@ -158,6 +160,8 @@ function App() {
             </section>
           )}
         </div>
+      ) : (
+        <PuffLoader color={'#ffffff'} size={200} className='loader' />
       )}
     </div>
   );
