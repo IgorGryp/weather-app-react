@@ -9,7 +9,7 @@ function App() {
 
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
-    navigator.geolocation &&
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           axios
@@ -29,6 +29,9 @@ function App() {
           alert('Error getting user location:', error);
         }
       );
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
     // eslint-disable-next-line
   }, []);
 
