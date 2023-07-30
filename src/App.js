@@ -7,6 +7,12 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
 
+  let localDay = 0;
+  let localDate = 0;
+  let localMonth = 0;
+  let localHours = 0;
+  let localMinutes = 0;
+
   // Gets users location, creates and saves the URL with users location by latitude and longitude
   useEffect(() => {
     navigator.geolocation &&
@@ -25,7 +31,7 @@ function App() {
           });
       });
     // eslint-disable-next-line
-  }, [setData]);
+  }, []);
 
   console.log(data.name);
 
@@ -48,11 +54,14 @@ function App() {
   };
 
   // Gets local date end time
-  let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
-  let localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
-  let localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
-  let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
-  let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
+  if (Object.keys(data).length !== 0) {
+    localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
+    localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
+    localMonth = new Date((data.dt + data.timezone) * 1000).getUTCMonth();
+    localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
+    localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
+    console.log('Data Fetched');
+  } else console.log('Data  NOT Fetched');
 
   // Doesn't use getUTCMinutes() because of showing wrong time
   // let localMinutes = new Date().getMinutes();
