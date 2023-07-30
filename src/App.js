@@ -77,7 +77,7 @@ function App() {
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) */}
 
-      {!data ? (
+      {Object.keys(data).length === 0 ? (
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
         <div className='content'>
