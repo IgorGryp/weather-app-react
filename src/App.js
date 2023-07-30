@@ -77,7 +77,9 @@ function App() {
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) */}
 
-      {data ? (
+      {!data ? (
+        <PuffLoader color={'#ffffff'} size={200} className='loader' />
+      ) : (
         <div className='content'>
           {/* ********** TOP-SECTION ********** */}
           {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
@@ -153,8 +155,6 @@ function App() {
             </section>
           )}
         </div>
-      ) : (
-        <PuffLoader color={'#ffffff'} size={200} className='loader' />
       )}
     </div>
   );
