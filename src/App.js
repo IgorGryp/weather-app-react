@@ -7,7 +7,8 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
 
-  // Gets users location, creates and saves the URL with users location by latitude and longitude
+  // Gets users location. Creates the URL with users location by latitude and longitude.
+  // Gets the data from API and sets the response data to the state.
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -17,27 +18,22 @@ function App() {
               `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
             )
             .then((response) => {
-              console.log(response.data);
               setData(response.data);
             })
             .catch((error) => {
-              // TODO: Fix better user error message
               console.error('API call error:', error);
             });
         },
         (error) => {
-          alert('Error getting user location:', error);
+          console.error('Error getting user location:', error);
         }
       );
     } else {
       alert('Geolocation is not supported by this browser.');
     }
-    // eslint-disable-next-line
   }, []);
 
-  console.log(data.name);
-
-  // Gets data for entered location from API and sets the response data to the state
+  // Gets data for entered location from API and sets the response data to the state.
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
       axios
@@ -48,7 +44,6 @@ function App() {
           setData(response.data);
         })
         .catch((error) => {
-          // TODO: Fix better user error message
           console.error('API call error:', error);
         });
       setLocation('');
@@ -70,7 +65,6 @@ function App() {
   return (
     <div className='App'>
       {/* ********** SEARCH BAR ********** */}
-
       <section className='search-bar'>
         <input
           value={location}
@@ -85,9 +79,8 @@ function App() {
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
         <div className='content'>
-          {/* ********** TOP-SECTION ********** */}
+          {/* ********** TOP SECTION ********** */}
           {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
-
           <section className='top-section'>
             <div className='location'>
               <p>{data.name}</p>
@@ -135,9 +128,8 @@ function App() {
             </div>
           </section>
 
-          {/* ********** BOTTOM-SECTION ********** */}
+          {/* ********** BOTTOM SECTION ********** */}
           {/* Humidity - Pressure - Wind */}
-
           {data.name !== undefined && (
             <section className='bottom-section'>
               <div className='humidity'>
