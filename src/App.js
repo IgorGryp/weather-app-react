@@ -57,7 +57,9 @@ function App() {
   let localHours = new Date((data.dt + data.timezone) * 1000).getUTCHours();
   let localMinutes = new Date((data.dt + data.timezone) * 1000).getUTCMinutes();
 
-  // Doesn't use getUTCMinutes() because of showing wrong time
+  // getUTCMinutes() is not working correctly and shows wrong minutes for different locations.
+  // The possible explanation could be that the data in the API is not updated live but with a certain delay.
+  // To work around this problem, you can use the local time of the user's location.
   // let localMinutes = new Date().getMinutes();
 
   /* **************************************************************************************************** */
@@ -76,6 +78,7 @@ function App() {
       </section>
 
       {Object.keys(data).length === 0 ? (
+        /* Loading spinner from react-spinners by David Hu */
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
       ) : (
         <div className='content'>
@@ -130,26 +133,24 @@ function App() {
 
           {/* ********** BOTTOM SECTION ********** */}
           {/* Humidity - Pressure - Wind */}
-          {data.name !== undefined && (
-            <section className='bottom-section'>
-              <div className='humidity'>
-                {data.main && <p className='bold'>{data.main.humidity} %</p>}
-                <p>Humidity</p>
-              </div>
+          <section className='bottom-section'>
+            <div className='humidity'>
+              {data.main && <p className='bold'>{data.main.humidity} %</p>}
+              <p>Humidity</p>
+            </div>
 
-              <div className='pressure'>
-                {data.main && <p className='bold'>{data.main.pressure} mb</p>}
-                <p>Pressure</p>
-              </div>
+            <div className='pressure'>
+              {data.main && <p className='bold'>{data.main.pressure} mb</p>}
+              <p>Pressure</p>
+            </div>
 
-              <div className='wind'>
-                {data.wind && (
-                  <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
-                )}
-                <p>Wind</p>
-              </div>
-            </section>
-          )}
+            <div className='wind'>
+              {data.wind && (
+                <p className='bold'>{data.wind.speed.toFixed()} m/s</p>
+              )}
+              <p>Wind</p>
+            </div>
+          </section>
         </div>
       )}
     </div>
