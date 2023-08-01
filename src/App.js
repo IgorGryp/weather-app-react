@@ -42,13 +42,32 @@ function App() {
         )
         .then((response) => {
           setData(response.data);
+          console.log(response.data.name);
         })
         .catch((error) => {
           console.error('API call error:', error);
+          alert('No result found.');
         });
       setLocation('');
     }
   };
+
+  /*   async function searchLocation1(event) {
+    if (event.key === 'Enter') {
+      try {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${API_KEY}&units=${metric_units}`
+        );
+
+        setData(response.data);
+        console.log(response.data.name);
+      } catch (error) {
+        console.error('API call error:', error);
+        alert('No result found.');
+      }
+      setLocation('');
+    }
+  } */
 
   // Gets local date end time
   let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
@@ -59,7 +78,7 @@ function App() {
 
   // getUTCMinutes() is not working correctly and shows wrong minutes for different locations.
   // The possible explanation could be that the data in the API is not updated live but with a certain delay.
-  // To work around this problem, you can use the local time of the user's location.
+  // To work around this problem, you can use the local time of your own location.
   // let localMinutes = new Date().getMinutes();
 
   /* **************************************************************************************************** */

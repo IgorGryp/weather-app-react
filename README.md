@@ -3,7 +3,7 @@ TEKNOLOGIER SOM ANVÄNDES I DETTA PROJEKT:
 Ract
 Geolocation API
 OpenWeatherMap API
-Axios
+Axios library
 react-spinners by David Hu
 
 SYFTET MED PROJEKTET:
