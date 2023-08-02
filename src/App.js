@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
+import Modal from './components/Modal';
 
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
   // Gets users location. Creates the URL with users location by latitude and longitude.
   // Gets the data from API and sets the response data to the state.
@@ -46,7 +48,8 @@ function App() {
         })
         .catch((error) => {
           console.error('API call error:', error);
-          alert('No result found.');
+          /* alert('No result found.'); */
+          setOpenModal(true);
         });
       setLocation('');
     }
@@ -95,7 +98,6 @@ function App() {
           type='text'
         />
       </section>
-
       {Object.keys(data).length === 0 ? (
         /* Loading spinner from react-spinners by David Hu */
         <PuffLoader color={'#ffffff'} size={200} className='loader' />
@@ -172,6 +174,7 @@ function App() {
           </section>
         </div>
       )}
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />;
     </div>
   );
 }
