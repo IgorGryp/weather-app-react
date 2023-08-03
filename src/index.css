@@ -167,7 +167,7 @@ h1 {
 /* *********************** MODAL *********************** */
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -197,18 +197,20 @@ h1 {
   height: 300px;
 }
 
-.modalMsg {
-  color: #000000;
-}
-
 .closeModalBtn {
   position: fixed;
   top: 8px;
   right: 8px;
   border: none;
   background-color: rgba(255, 255, 255, 0);
-  font-size: 1.4rem;
-  font-weight: 800;
+}
+
+.crossImg {
+  width: 2rem;
+}
+
+.modalMsg {
+  color: #000000;
 }
 
 @media screen and (max-width: 768px) {
@@ -232,8 +234,11 @@ h1 {
     height: 260px;
   }
   .modalImg {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+  }
+  .crossImg {
+    width: 1.6rem;
   }
 }
 
@@ -255,10 +260,13 @@ h1 {
     height: 200px;
   }
   .modalImg {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
   .modalMsg {
     font-size: 1rem;
+  }
+  .crossImg {
+    width: 1.4rem;
   }
 }

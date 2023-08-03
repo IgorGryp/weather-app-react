@@ -1,5 +1,6 @@
 import React from 'react';
 import cloudImg from '../assets/cloud-01.png';
+import crossImg from '../assets/cross-02.png';
 
 const Modal = ({ openModal, setOpenModal }) => {
   if (!openModal) return null;
@@ -10,7 +11,11 @@ const Modal = ({ openModal, setOpenModal }) => {
         <img src={cloudImg} className='modalImg' alt='no result found' />
         <p className='modalMsg'>No result found</p>
         <button onClick={() => setOpenModal(false)} className='closeModalBtn'>
-          X
+          <img
+            className='crossImg'
+            src={crossImg}
+            alt='close modal button'
+          ></img>
         </button>
       </div>
     </div>
