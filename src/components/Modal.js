@@ -8,6 +8,7 @@ const Modal = ({ openModal, setOpenModal }) => {
     <div className='overlay'>
       <div className='modalContainer'>
         <img src={cloudImg} className='modalImg' alt='no result found' />
+        <p className='modalMsg'>No result found</p>
         <button onClick={() => setOpenModal(false)} className='closeModalBtn'>
           X
         </button>
