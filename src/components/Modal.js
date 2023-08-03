@@ -1,5 +1,5 @@
 import React from 'react';
-import cloudImg from '../assets/cloud.png';
+import cloudImg from '../assets/cloud-01.png';
 
 const Modal = ({ openModal, setOpenModal }) => {
   if (!openModal) return null;
