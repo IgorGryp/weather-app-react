@@ -174,7 +174,7 @@ function App() {
           </section>
         </div>
       )}
-      <Modal openModal={openModal} setOpenModal={setOpenModal} />;
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 }
