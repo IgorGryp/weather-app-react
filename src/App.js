@@ -48,7 +48,7 @@ function App() {
         })
         .catch((error) => {
           console.error('API call error:', error);
-          /* alert('No result found.'); */
+          /* Displays error message in modal in case of incorrect input */
           setOpenModal(true);
         });
       setLocation('');
