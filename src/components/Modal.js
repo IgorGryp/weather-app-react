@@ -3,7 +3,7 @@ import cloudImg from '../assets/cloud-01.png';
 import crossImg from '../assets/cross-02.png';
 
 const Modal = ({ openModal, setOpenModal }) => {
-  if (!openModal) return null;
+  if (openModal === false) return null;
 
   return (
     <div className='overlay'>

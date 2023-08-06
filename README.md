@@ -1,10 +1,11 @@
-TEKNOLOGIER SOM ANVÄNDES I DETTA PROJEKT:
+TEKNOLOGIER OCH RESURSER SOM ANVÄNDES I DETTA PROJEKT:
 
 Ract
 Geolocation API
 OpenWeatherMap API
 Axios library
 react-spinners by David Hu
+flaticon
 
 SYFTET MED PROJEKTET:
 
