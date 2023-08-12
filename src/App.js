@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [inputIsDisabled, setInputIsDisabled] = useState(false);
 
   // Gets users location. Creates the URL with users location by latitude and longitude.
   // Gets the data from API and sets the response data to the state.
@@ -55,23 +56,6 @@ function App() {
     }
   };
 
-  /*   async function searchLocation1(event) {
-    if (event.key === 'Enter') {
-      try {
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${API_KEY}&units=${metric_units}`
-        );
-
-        setData(response.data);
-        console.log(response.data.name);
-      } catch (error) {
-        console.error('API call error:', error);
-        alert('No result found.');
-      }
-      setLocation('');
-    }
-  } */
-
   // Gets local date end time
   let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
   let localDate = new Date((data.dt + data.timezone) * 1000).getUTCDate();
@@ -83,6 +67,11 @@ function App() {
   // The possible explanation could be that the data in the API is not updated live but with a certain delay.
   // To work around this problem, you can use the local time of your own location.
   // let localMinutes = new Date().getMinutes();
+
+  // Disables input field in case of incorrect user input and the Modal component opens.
+  useEffect(() => {
+    if (openModal) setInputIsDisabled(true);
+  }, [openModal]);
 
   /* **************************************************************************************************** */
 
@@ -96,6 +85,7 @@ function App() {
           onKeyPress={searchLocation}
           placeholder='Search City'
           type='text'
+          disabled={inputIsDisabled}
         />
       </section>
       {Object.keys(data).length === 0 ? (
@@ -174,7 +164,12 @@ function App() {
           </section>
         </div>
       )}
-      <Modal openModal={openModal} setOpenModal={setOpenModal} />
+
+      <Modal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        setInputIsDisabled={setInputIsDisabled}
+      />
     </div>
   );
 }

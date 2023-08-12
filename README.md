@@ -1,11 +1,11 @@
 TEKNOLOGIER OCH RESURSER SOM ANVÄNDES I DETTA PROJEKT:
 
-Ract
-Geolocation API
-OpenWeatherMap API
-Axios library
-react-spinners by David Hu
-flaticon
+Ract.
+Geolocation API.
+OpenWeatherMap API.
+Axios library.
+react-spinners by David Hu.
+flaticon - database of free customizable icons.
 
 SYFTET MED PROJEKTET:
 
