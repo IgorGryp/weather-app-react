@@ -1,6 +1,6 @@
 import React from 'react';
 import cloudImg from '../assets/cloud-01.png';
-import crossImg from '../assets/cross-02.png';
+import crossImg from '../assets/cross.png';
 
 const Modal = ({ openModal, setOpenModal, setInputIsDisabled }) => {
   // If openModal is false no Modal is displayed.
