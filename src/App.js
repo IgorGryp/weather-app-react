@@ -11,6 +11,7 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const [inputIsDisabled, setInputIsDisabled] = useState(false);
   const [locationList, setLocationList] = useState([]);
+  const [countryCode, setCountryCode] = useState([]);
 
   // Gets users location. Creates the URL with users location by latitude and longitude.
   // Gets the data from API and sets the response data to the state.
@@ -78,87 +79,83 @@ function App() {
   /* **************************************************************************************************** */
 
   return (
-    <div className='App'>
+    <div className="App">
       {/* ********** SEARCH BAR ********** */}
-      <section className='search-bar'>
+      <section className="search-bar">
         <input
-          id='location'
+          id="location"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
           onKeyPress={searchLocation}
-          placeholder='Search City'
-          type='text'
+          placeholder="Search City"
+          type="text"
           disabled={inputIsDisabled}
         />
       </section>
       {Object.keys(data).length === 0 ? (
         /* Spinner from react-spinners by David Hu */
-        <PuffLoader color={'#ffffff'} size={200} className='loader' />
+        <PuffLoader color={'#ffffff'} size={200} className="loader" />
       ) : (
-        <div className='content'>
+        <div className="content">
           {/* ********** TOP SECTION ********** */}
           {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
-          <section className='top-section'>
-            <div className='location'>
+          <section className="top-section">
+            <div className="location">
               <p>{data.name}</p>
               {data.sys && <p>, {data.sys.country}</p>}
             </div>
 
-            <div className='date-time'>
+            <div className="date-time">
               {
-                <p className='date'>
+                <p className="date">
                   {weekdays[localDay]}, {months[localMonth]} {localDate}
                 </p>
               }
               {
-                <p className='time'>
+                <p className="time">
                   {localHours < 10 ? '0' + localHours : '' + localHours}:
                   {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
                 </p>
               }
             </div>
 
-            <div className='temp-icon'>
-              <div className='temp'>
-                {data.main && <h1>{data.main.temp.toFixed()} °C</h1>}
-              </div>
-              <div className='icon-div'>
+            <div className="temp-icon">
+              <div className="temp">{data.main && <h1>{data.main.temp.toFixed()} °C</h1>}</div>
+              <div className="icon-div">
                 {data.weather && (
                   <img
-                    className='icon'
+                    className="icon"
                     src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                    alt='weather icon'
+                    alt="weather icon"
                   ></img>
                 )}
               </div>
-              <div className='description'>
+              <div className="description">
                 {data.weather && <p>{data.weather[0].description}</p>}
               </div>
             </div>
 
-            <div className='description-feels-like'>
-              <div className='feels-like'>
-                {data.main && (
-                  <p>Feels like {data.main.feels_like.toFixed()} °C</p>
-                )}
+            <div className="description-feels-like">
+              <div className="feels-like">
+                {data.main && <p>Feels like {data.main.feels_like.toFixed()} °C</p>}
               </div>
             </div>
           </section>
 
           {/* ********** BOTTOM SECTION ********** */}
           {/* Humidity - Pressure - Wind */}
-          <section className='bottom-section'>
-            <div className='humidity'>
+          <section className="bottom-section">
+            <div className="humidity">
               {data.main && <p>{data.main.humidity} %</p>}
               <p>Humidity</p>
             </div>
 
-            <div className='pressure'>
+            <div className="pressure">
               {data.main && <p>{data.main.pressure} mb</p>}
               <p>Pressure</p>
             </div>
 
-            <div className='wind'>
+            <div className="wind">
               {data.wind && <p>{data.wind.speed.toFixed()} m/s</p>}
               <p>Wind</p>
             </div>
@@ -176,6 +173,8 @@ function App() {
         setLocation={setLocation}
         locationList={locationList}
         setLocationList={setLocationList}
+        countryCode={countryCode}
+        setCountryCode={setCountryCode}
       />
     </div>
   );
