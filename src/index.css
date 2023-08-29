@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
@@ -43,7 +43,7 @@ h1 {
 
 .search-bar {
   text-align: center;
-  padding: 1.4rem;
+  padding: 1.4rem 1.4rem 0rem 1.4rem;
 }
 
 .search-bar input[type='text'] {
@@ -51,12 +51,13 @@ h1 {
 }
 
 .App input {
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1rem;
   font-size: 1.2rem;
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.1);
   color: #f8f8f8;
+  width: 360px;
 }
 
 ::placeholder {
@@ -68,7 +69,7 @@ h1 {
   /* height: 500px; */
   margin: 0 auto;
   position: relative;
-  top: 10%;
+  top: 16%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -211,6 +212,42 @@ h1 {
 
 .modalMsg {
   color: #000000;
+}
+
+/* *********************** SearchLocation Component *********************** */
+
+.location-suggestions-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  margin: 0 auto;
+}
+
+.location-suggestions-div ul {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.location-suggestions-div li {
+  list-style: none;
+  height: 45px;
+  cursor: pointer;
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.location-suggestions-div li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.location-suggestions {
+  width: 160px;
+}
+
+.location-uggestions-icon {
+  width: 32px;
 }
 
 @media screen and (max-width: 768px) {

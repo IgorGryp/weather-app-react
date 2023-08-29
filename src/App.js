@@ -3,15 +3,17 @@ import axios from 'axios';
 import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal';
-import SearchLocation from './components/SearchLocation';
+import CityList from './components/CityList';
 
 function App() {
   const [data, setData] = useState({});
+  const [userInput, setUserInput] = useState('');
   const [location, setLocation] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [inputIsDisabled, setInputIsDisabled] = useState(false);
   const [locationList, setLocationList] = useState([]);
   const [countryCode, setCountryCode] = useState([]);
+  const [locationId, setLocationId] = useState(null);
 
   // Gets users location. Creates the URL with users location by latitude and longitude.
   // Gets the data from API and sets the response data to the state.
@@ -21,10 +23,11 @@ function App() {
         (position) => {
           axios
             .get(
-              `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${metric_units}`
+              `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${metric_units}`
             )
             .then((response) => {
               setData(response.data);
+              /* console.log(response.data); */
             })
             .catch((error) => {
               console.error('API call error:', error);
@@ -38,26 +41,6 @@ function App() {
       alert('Geolocation is not supported by this browser.');
     }
   }, []);
-
-  // Gets data for entered location from API and sets the response data to the state.
-  const searchLocation = (event) => {
-    if (event.key === 'Enter') {
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${API_KEY}&units=${metric_units}`
-        )
-        .then((response) => {
-          setData(response.data);
-          console.log(response.data.name);
-        })
-        .catch((error) => {
-          console.error('API call error:', error);
-          /* Displays error message in modal in case of incorrect input */
-          setOpenModal(true);
-        });
-      setLocation('');
-    }
-  };
 
   // Gets local date end time
   let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
@@ -76,6 +59,12 @@ function App() {
     if (openModal) setInputIsDisabled(true);
   }, [openModal]);
 
+  const getCityList = (event) => {
+    if (event.key === 'Enter') {
+      setLocation(userInput);
+    }
+  };
+
   /* **************************************************************************************************** */
 
   return (
@@ -84,14 +73,31 @@ function App() {
       <section className="search-bar">
         <input
           id="location"
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-          onKeyPress={searchLocation}
+          value={userInput}
           placeholder="Search City"
           type="text"
           disabled={inputIsDisabled}
+          onChange={(event) => setUserInput(event.target.value)}
+          onKeyDown={getCityList}
         />
       </section>
+
+      <CityList
+        location={location}
+        setLocation={setLocation}
+        locationList={locationList}
+        setLocationList={setLocationList}
+        countryCode={countryCode}
+        setCountryCode={setCountryCode}
+        locationId={locationId}
+        setLocationId={setLocationId}
+        /* searchLocation={searchLocation} */
+        data={data}
+        setData={setData}
+        setOpenModal={setOpenModal}
+        setUserInput={setUserInput}
+      />
+
       {Object.keys(data).length === 0 ? (
         /* Spinner from react-spinners by David Hu */
         <PuffLoader color={'#ffffff'} size={200} className="loader" />
@@ -167,14 +173,6 @@ function App() {
         openModal={openModal}
         setOpenModal={setOpenModal}
         setInputIsDisabled={setInputIsDisabled}
-      />
-      <SearchLocation
-        location={location}
-        setLocation={setLocation}
-        locationList={locationList}
-        setLocationList={setLocationList}
-        countryCode={countryCode}
-        setCountryCode={setCountryCode}
       />
     </div>
   );

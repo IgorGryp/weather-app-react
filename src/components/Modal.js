@@ -14,13 +14,13 @@ const Modal = ({ openModal, setOpenModal, setInputIsDisabled }) => {
 
   return (
     <div>
-      <div onClick={() => handleModal()} className='overlay'>
-        <div onClick={(e) => e.stopPropagation()} className='modalContainer'>
-          <button onClick={() => handleModal()} className='closeModalBtn'>
-            <img className='crossImg' src={crossImg} alt='close modal button' />
+      <div onClick={() => handleModal()} className="overlay">
+        <div onClick={(e) => e.stopPropagation()} className="modalContainer">
+          <button onClick={() => handleModal()} className="closeModalBtn">
+            <img className="crossImg" src={crossImg} alt="close modal button" />
           </button>
-          <img src={cloudImg} className='modalImg' alt='no result found' />
-          <p className='modalMsg'>No result found</p>
+          <img src={cloudImg} className="modalImg" alt="no result found" />
+          <p className="modalMsg">No result found</p>
         </div>
       </div>
     </div>
