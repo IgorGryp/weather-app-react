@@ -91,7 +91,6 @@ function App() {
         setCountryCode={setCountryCode}
         locationId={locationId}
         setLocationId={setLocationId}
-        /* searchLocation={searchLocation} */
         data={data}
         setData={setData}
         setOpenModal={setOpenModal}

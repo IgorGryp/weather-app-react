@@ -10,7 +10,6 @@ function CityList({
   setLocationList,
   locationId,
   setLocationId,
-  searchLocation,
   setData,
   setOpenModal,
   setUserInput,
