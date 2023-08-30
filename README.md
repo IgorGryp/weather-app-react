@@ -18,3 +18,5 @@ Lära sig att använda Loading Spinners medan data hämtas.
 VIKTIGT!
 
 Skapa .env fil och lägg till API Key från OpenWeatherMap för att få applikationen att fungera.
+
+***
