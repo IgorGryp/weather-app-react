@@ -280,6 +280,11 @@ h1 {
 }
 
 @media screen and (max-width: 425px) {
+  .App input {
+    padding: 0.7rem 1rem;
+    font-size: 1.2rem;
+    width: 300px;
+  }
   .content {
     top: 24px;
   }
@@ -305,6 +310,12 @@ h1 {
   }
   .crossImg {
     width: 1rem;
+  }
+  .location-suggestions-div {
+    width: 300px;
+  }
+  .location-suggestions-div li {
+    width: 300px;
   }
 }
 
