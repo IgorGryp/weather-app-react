@@ -55,13 +55,13 @@ function CityList({
             {/* The list of matched cities */}
             {locationList.length > 0 &&
               locationList.map((item) => (
-                <li key={item.id}>
-                  <span
-                    className="location-suggestions"
-                    onClick={() => {
-                      handleClick(item.id);
-                    }}
-                  >
+                <li
+                  key={item.id}
+                  onClick={() => {
+                    handleClick(item.id);
+                  }}
+                >
+                  <span className="location-suggestions">
                     {`${item.name}, ${item.sys.country}`}
                   </span>
                   <span>{item.main.temp.toFixed()} °C</span>
