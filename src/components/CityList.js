@@ -39,7 +39,7 @@ function CityList({
           setOpenModal(true); // Shows Error Modal if request fails
           setLocationList([]); // Closes the list of cities
         });
-  }, [location]);
+  }, [location, setLocationList, setOpenModal]);
 
   const handleClick = (itemId) => {
     setLocationId(itemId); // Sets id for the selected location
