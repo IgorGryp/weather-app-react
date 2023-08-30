@@ -19,7 +19,7 @@ function CityList({
     location && // Checks if there any user input before request
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/find?&q=${location}&appid=${API_KEY}&units=${metric_units}`
+          `https://api.openweathermap.org/data/2.5/find?&q=${location}&appid=${API_KEY}&units=${metric_units}`
         )
         .then((response) => {
           console.log(response.data.list);
