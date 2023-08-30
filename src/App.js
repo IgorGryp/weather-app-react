@@ -4,6 +4,7 @@ import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal';
 import CityList from './components/CityList';
+import searchImg from './assets/search.png';
 
 function App() {
   const [data, setData] = useState({});
@@ -59,10 +60,16 @@ function App() {
     if (openModal) setInputIsDisabled(true);
   }, [openModal]);
 
+  // Calls City list by pressing Enter
   const getCityList = (event) => {
     if (event.key === 'Enter') {
       setLocation(userInput);
     }
+  };
+
+  // Calls City list with button click
+  const getCityListByButtonClick = () => {
+    setLocation(userInput);
   };
 
   /* **************************************************************************************************** */
@@ -71,15 +78,20 @@ function App() {
     <div className="App">
       {/* ********** SEARCH BAR ********** */}
       <section className="search-bar">
-        <input
-          id="location"
-          value={userInput}
-          placeholder="Search City"
-          type="text"
-          disabled={inputIsDisabled}
-          onChange={(event) => setUserInput(event.target.value)}
-          onKeyDown={getCityList}
-        />
+        <div className="search-bar-container">
+          <input
+            id="location"
+            value={userInput}
+            placeholder="Search City"
+            type="text"
+            disabled={inputIsDisabled}
+            onChange={(event) => setUserInput(event.target.value)}
+            onKeyDown={getCityList}
+          />
+          <div className="button-container" onClick={getCityListByButtonClick}>
+            <img src={searchImg} alt="search button" className="search-button"></img>
+          </div>
+        </div>
       </section>
 
       <CityList

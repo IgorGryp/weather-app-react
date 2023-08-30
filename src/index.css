@@ -46,6 +46,12 @@ h1 {
   padding: 1.4rem 1.4rem 0.8rem 1.4rem;
 }
 
+.search-bar-container {
+  position: relative;
+  width: 360px;
+  margin: 0 auto;
+}
+
 .search-bar input[type='text'] {
   font-size: 1rem;
 }
@@ -58,10 +64,33 @@ h1 {
   background: rgba(255, 255, 255, 0.1);
   color: #f8f8f8;
   width: 360px;
+  height: 42px;
 }
 
 ::placeholder {
   color: #f8f8f8;
+}
+
+.button-container {
+  height: 40px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1px;
+  cursor: pointer;
+  border-radius: 0px 25px 25px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+  width: 20px;
+}
+.button-container:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .content {
@@ -283,6 +312,9 @@ h1 {
   .App input {
     padding: 0.7rem 1rem;
     font-size: 1.2rem;
+    width: 300px;
+  }
+  .search-bar-container {
     width: 300px;
   }
   .content {
