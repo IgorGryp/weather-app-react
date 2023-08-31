@@ -357,9 +357,6 @@ h1 {
     width: 320px;
     margin: initial;
   }
-  .location-pin-container {
-    right: 0.6rem;
-  }
 }
 
 @media screen and (max-width: 420px) {
@@ -402,6 +399,20 @@ h1 {
   }
   .location-suggestions-div li {
     width: 300px;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .App input {
+    width: 280px;
+  }
+  .search-bar {
+    width: initial;
+    justify-content: space-between;
+  }
+  .search-bar-container {
+    width: 280px;
+    margin: initial;
   }
 }
 
