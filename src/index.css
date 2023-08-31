@@ -44,7 +44,7 @@ h1 {
 .search-bar {
   width: 520px;
   text-align: center;
-  padding: 1.4rem 1.4rem 0.8rem 1.4rem;
+  padding: 1.4rem 0.6rem 0.8rem 0.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,8 +131,7 @@ h1 {
 /* *********************** TOP SECTION *********************** */
 
 .top-section {
-  width: 100%;
-  margin: 1rem auto;
+  margin: 1rem 0.6rem;
 }
 
 .date,
@@ -204,8 +203,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  width: 100%;
-  margin: 4rem auto;
+  margin: 4rem 0.6rem;
   /*  margin-top: 4rem; */
   padding: 1rem;
   border-radius: 12px;
@@ -308,11 +306,9 @@ h1 {
     font-size: 1rem;
   }
   .top-section {
-    width: 90%;
+    /* width: 90%; */
   }
-  .bottom-section {
-    width: 90%;
-  }
+  /* a */
   .bottom-section div {
     padding: 0.5rem;
   }
@@ -341,7 +337,7 @@ h1 {
     margin: initial;
   }
   .location-pin-container {
-    right: 1.4rem;
+    right: 0.6rem;
   }
 }
 
@@ -358,7 +354,7 @@ h1 {
     margin: initial;
   }
   .location-pin-container {
-    right: 1.4rem;
+    right: 0.6rem;
   }
 }
 
