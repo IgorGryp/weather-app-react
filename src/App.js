@@ -4,7 +4,9 @@ import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal';
 import CityList from './components/CityList';
+import LocationButton from './components/LocationButton';
 import searchImg from './assets/search.png';
+import pinImg from './assets/location.png';
 
 function App() {
   const [data, setData] = useState({});
@@ -88,10 +90,12 @@ function App() {
             onChange={(event) => setUserInput(event.target.value)}
             onKeyDown={getCityList}
           />
-          <div className="button-container" onClick={getCityListByButtonClick}>
+          <div className="search-button-container" onClick={getCityListByButtonClick}>
             <img src={searchImg} alt="search button" className="search-button"></img>
           </div>
         </div>
+
+        <LocationButton />
       </section>
 
       <CityList
