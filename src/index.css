@@ -366,10 +366,10 @@ h1 {
   .App input {
     padding: 0.7rem 1rem;
     font-size: 1.2rem;
-    width: 270px;
+    width: 260px;
   }
   .search-bar-container {
-    width: 270px;
+    width: 260px;
   }
   .content {
     top: 24px;
