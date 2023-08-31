@@ -6,7 +6,6 @@ import Modal from './components/Modal';
 import CityList from './components/CityList';
 import LocationButton from './components/LocationButton';
 import searchImg from './assets/search.png';
-import pinImg from './assets/location.png';
 
 function App() {
   const [data, setData] = useState({});
