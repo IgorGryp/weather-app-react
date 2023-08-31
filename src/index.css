@@ -329,11 +329,15 @@ h1 {
 }
 
 @media screen and (max-width: 576px) {
+  .App input {
+    width: 420px;
+  }
   .search-bar {
     width: initial;
     justify-content: space-between;
   }
   .search-bar-container {
+    width: 420px;
     margin: initial;
   }
   .location-pin-container {
@@ -341,7 +345,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 488px) {
   .App input {
     width: 320px;
   }
@@ -362,10 +366,10 @@ h1 {
   .App input {
     padding: 0.7rem 1rem;
     font-size: 1.2rem;
-    width: 250px;
+    width: 300px;
   }
   .search-bar-container {
-    width: 250px;
+    width: 300px;
   }
   .content {
     top: 24px;
