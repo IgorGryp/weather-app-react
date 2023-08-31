@@ -42,7 +42,7 @@ h1 {
 }
 
 .search-bar {
-  width: 480px;
+  width: 520px;
   text-align: center;
   padding: 1.4rem 1.4rem 0.8rem 1.4rem;
   display: flex;
@@ -329,6 +329,24 @@ h1 {
   }
   .crossImg {
     width: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .search-bar {
+    width: 360px;
+    flex-direction: column;
+  }
+  .search-bar-container {
+    margin: initial;
+  }
+  .location-pin-container {
+    position: initial;
+    margin-top: 1.4rem;
+  }
+
+  .location-pin {
+    width: 26px;
   }
 }
 

@@ -19,7 +19,8 @@ function App() {
 
   // Gets users location. Creates the URL with users location by latitude and longitude.
   // Gets the data from API and sets the response data to the state.
-  useEffect(() => {
+
+  const searchUserLacation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -42,6 +43,11 @@ function App() {
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+  };
+
+  // Runs the function to identify the user's location
+  useEffect(() => {
+    searchUserLacation();
   }, []);
 
   // Gets local date end time
@@ -94,7 +100,7 @@ function App() {
           </div>
         </div>
 
-        <LocationButton />
+        <LocationButton searchUserLacation={searchUserLacation} />
       </section>
 
       <CityList
