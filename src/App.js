@@ -172,18 +172,18 @@ function App() {
           {/* Humidity - Pressure - Wind */}
           <section className="bottom-section">
             <div className="humidity">
-              {data.main && <p>{data.main.humidity} %</p>}
               <p>Humidity</p>
+              {data.main && <p>{data.main.humidity} %</p>}
             </div>
 
             <div className="pressure">
-              {data.main && <p>{data.main.pressure} mb</p>}
               <p>Pressure</p>
+              {data.main && <p>{data.main.pressure} mb</p>}
             </div>
 
             <div className="wind">
-              {data.wind && <p>{data.wind.speed.toFixed()} m/s</p>}
               <p>Wind</p>
+              {data.wind && <p>{data.wind.speed.toFixed()} m/s</p>}
             </div>
           </section>
         </div>

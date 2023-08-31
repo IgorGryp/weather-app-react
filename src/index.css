@@ -305,10 +305,6 @@ h1 {
   ::placeholder {
     font-size: 1rem;
   }
-  .top-section {
-    /* width: 90%; */
-  }
-  /* a */
   .bottom-section div {
     padding: 0.5rem;
   }
@@ -378,7 +374,7 @@ h1 {
     font-size: 1rem;
   }
   .bottom-section {
-    flex-direction: column;
+    justify-content: space-between;
   }
   .modalContainer {
     width: 180px;
