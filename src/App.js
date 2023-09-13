@@ -5,6 +5,8 @@ import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal';
 import CityList from './components/CityList';
 import LocationButton from './components/LocationButton';
+import Forecast from './components/Forecast';
+import FC from './components/FC';
 import searchImg from './assets/search.png';
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
             )
             .then((response) => {
               setData(response.data);
-              /* console.log(response.data); */
+              console.log(response.data);
             })
             .catch((error) => {
               console.error('API call error:', error);
@@ -194,6 +196,8 @@ function App() {
         setOpenModal={setOpenModal}
         setInputIsDisabled={setInputIsDisabled}
       />
+      {/* <Forecast /> */}
+      <FC />
     </div>
   );
 }
