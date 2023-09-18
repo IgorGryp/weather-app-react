@@ -189,6 +189,10 @@ function App() {
               {data.wind && <p>{data.wind.speed.toFixed()} m/s</p>}
             </div>
           </section>
+
+          {/* <Forecast /> */}
+
+          <Fcf />
         </div>
       )}
 
@@ -197,10 +201,6 @@ function App() {
         setOpenModal={setOpenModal}
         setInputIsDisabled={setInputIsDisabled}
       />
-
-      {/* <Forecast /> */}
-
-      <Fcf />
     </div>
   );
 }

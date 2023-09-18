@@ -53,14 +53,17 @@ function Fcf() {
     let localMonth = new Date(itemAt12.dt * 1000).getUTCMonth();
 
     filteredItems.push(
-      <div key={itemAt12.dt} className="forecast-div">
-        <p className="forecast-date">
-          {weekdays[localDay].substring(0, 3)}, {localDate} {months[localMonth]}
-        </p>
-        <div className="forecast-temp-and-icon-div">
-          <p className="forecast-temp">
-            {itemAt12.main.temp.toFixed()} ° / {itemAt00.main.temp.toFixed()} °
+      <div key={itemAt12.dt} className="forecast-container">
+        <div className="forecast-date-container">
+          <p className="forecast-date">
+            {weekdays[localDay].substring(0, 3)}, {localDate} {months[localMonth]}
           </p>
+        </div>
+        <div className="forecast-temp-and-icon-container">
+          <div className="forecast-temp-container">
+            <p className="forecast-temp">{itemAt12.main.temp.toFixed()} °</p>
+            <p className="forecast-temp">{itemAt00.main.temp.toFixed()} °</p>
+          </div>
           <img
             className="forecast-icon"
             src={`https://openweathermap.org/img/wn/${itemAt12.weather[0].icon}@2x.png`}
@@ -79,7 +82,7 @@ function Fcf() {
     } */
   }
 
-  return <div>{filteredItems}</div>;
+  return <div className="forecast-wrapper">{filteredItems}</div>;
 }
 
 export default Fcf;
