@@ -5,9 +5,10 @@ import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal';
 import CityList from './components/CityList';
 import LocationButton from './components/LocationButton';
-import Forecast from './components/Forecast';
-import FC from './components/FC';
+// import Forecast from './components/Forecast';
+// import FC from './components/FC';
 import searchImg from './assets/search.png';
+import Fcf from './components/Fcf';
 
 function App() {
   const [data, setData] = useState({});
@@ -196,8 +197,10 @@ function App() {
         setOpenModal={setOpenModal}
         setInputIsDisabled={setInputIsDisabled}
       />
+
       {/* <Forecast /> */}
-      <FC />
+
+      <Fcf />
     </div>
   );
 }
