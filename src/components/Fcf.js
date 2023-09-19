@@ -9,9 +9,6 @@ function Fcf() {
   const itemsAt12 = [];
   const itemsAt00 = [];
 
-  /*   let itemAt00 = null;
-  let itemAt12 = null; */
-
   let filteredItems = [];
 
   const [forecastList, setForecastList] = useState([]);
@@ -82,7 +79,14 @@ function Fcf() {
     } */
   }
 
-  return <div className="forecast-wrapper">{filteredItems}</div>;
+  return (
+    <div className="forecast-wrapper">
+      <div>
+        <h3 className="forecast-heading">10 DAY FORECAST</h3>
+      </div>
+      <div className="forecast-items">{filteredItems}</div>
+    </div>
+  );
 }
 
 export default Fcf;

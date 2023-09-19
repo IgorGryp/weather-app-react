@@ -14,10 +14,6 @@ body {
   user-select: none;
 }
 
-p {
-  font-size: 1.2rem;
-}
-
 h1 {
   font-size: 3.5rem;
 }
@@ -266,7 +262,7 @@ h1 {
   color: #000000;
 }
 
-/* *********************** SearchLocation Component *********************** */
+/* *********************** SEARCHLOCATION COMPONENT *********************** */
 
 .location-suggestions-div {
   display: flex;
@@ -302,12 +298,13 @@ h1 {
   width: 32px;
 }
 
-/* *********************** Forecast Component *********************** */
+/* *********************** FORECAST COMPONENT *********************** */
 .forecast-heading {
-  text-align: center;
+  text-align: start;
+  margin: 0 1rem;
 }
 
-.forecast-wrapper {
+.forecast-items {
   display: flex;
 }
 
@@ -328,21 +325,23 @@ h1 {
   justify-content: left;
 }
 
-.forecast-date {
-  font-size: 16px;
-}
-
 .forecast-temp-and-icon-container {
   display: flex;
   justify-content: left;
   align-items: center;
+  height: 60px;
 }
 
-.forecast-temp-container {
-  height: 100%;
+/* .forecast-temp-container {
+  height: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+} */
+
+.forecast-temp-container p:nth-child(1) {
+  font-weight: 800;
+  margin-bottom: 0.4rem;
 }
 
 .forecast-temp {
@@ -353,6 +352,8 @@ h1 {
   width: 60px;
   margin-left: 12px;
 }
+
+/* *********************** MEDIA QUERIES *********************** */
 
 @media screen and (max-width: 768px) {
   ::placeholder {

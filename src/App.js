@@ -130,8 +130,8 @@ function App() {
           {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
           <section className="top-section">
             <div className="location">
-              <p>{data.name}</p>
-              {data.sys && <p>, {data.sys.country}</p>}
+              <h2>{data.name}</h2>
+              {data.sys && <h2>, {data.sys.country}</h2>}
             </div>
 
             <div className="date-time">
