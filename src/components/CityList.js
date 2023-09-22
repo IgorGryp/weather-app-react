@@ -41,6 +41,7 @@ function CityList({
         });
   }, [location, setLocationList, setOpenModal]);
 
+  // Handles click event on city from city list
   const handleClick = (itemId) => {
     setLocationId(itemId); // Sets id for the selected location
     setLocationList([]); // Closes the list of cities

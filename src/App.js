@@ -8,7 +8,7 @@ import LocationButton from './components/LocationButton';
 // import Forecast from './components/Forecast';
 // import FC from './components/FC';
 import searchImg from './assets/search.png';
-import Fcf from './components/Fcf';
+import Forecast from './components/Forecast';
 
 function App() {
   const [data, setData] = useState({});
@@ -19,10 +19,10 @@ function App() {
   const [locationList, setLocationList] = useState([]);
   const [countryCode, setCountryCode] = useState([]);
   const [locationId, setLocationId] = useState(null);
+  const [forecastList, setForecastList] = useState([]);
 
-  // Gets users location. Creates the URL with users location by latitude and longitude.
-  // Gets the data from API and sets the response data to the state.
-
+  // Gets users location
+  // Gets the data from API and sets the response data to the state
   const searchUserLacation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -115,7 +115,7 @@ function App() {
         setCountryCode={setCountryCode}
         locationId={locationId}
         setLocationId={setLocationId}
-        data={data}
+        /* data={data} */
         setData={setData}
         setOpenModal={setOpenModal}
         setUserInput={setUserInput}
@@ -191,8 +191,11 @@ function App() {
           </section>
 
           {/* <Forecast /> */}
-
-          <Fcf />
+          <Forecast
+            forecastList={forecastList}
+            setForecastList={setForecastList}
+            locationId={locationId}
+          />
         </div>
       )}
 
