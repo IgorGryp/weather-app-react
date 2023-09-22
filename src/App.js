@@ -131,42 +131,38 @@ function App() {
           <section className="top-section">
             <div className="location">
               <h2>{data.name}</h2>
-              {data.sys && <h2>, {data.sys.country}</h2>}
+              <h2>, {data.sys.country}</h2>
             </div>
 
             <div className="date-time">
-              {
-                <p className="date">
-                  {weekdays[localDay]}, {months[localMonth]} {localDate}
-                </p>
-              }
-              {
-                <p className="time">
-                  {localHours < 10 ? '0' + localHours : '' + localHours}:
-                  {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
-                </p>
-              }
+              <p className="date">
+                {weekdays[localDay]}, {months[localMonth]} {localDate}
+              </p>
+              <p className="time">
+                {localHours < 10 ? '0' + localHours : '' + localHours}:
+                {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
+              </p>
             </div>
 
             <div className="temp-icon">
-              <div className="temp">{data.main && <h1>{data.main.temp.toFixed()} °C</h1>}</div>
+              <div className="temp">
+                <h1>{data.main.temp.toFixed()} °C</h1>
+              </div>
               <div className="icon-div">
-                {data.weather && (
-                  <img
-                    className="icon"
-                    src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                    alt="weather icon"
-                  ></img>
-                )}
+                <img
+                  className="icon"
+                  src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                  alt="weather icon"
+                ></img>
               </div>
               <div className="description">
-                {data.weather && <p>{data.weather[0].description}</p>}
+                <p>{data.weather[0].description}</p>
               </div>
             </div>
 
             <div className="description-feels-like">
               <div className="feels-like">
-                {data.main && <p>Feels like {data.main.feels_like.toFixed()} °C</p>}
+                <p>Feels like {data.main.feels_like.toFixed()} °C</p>
               </div>
             </div>
           </section>
@@ -176,17 +172,17 @@ function App() {
           <section className="bottom-section">
             <div className="humidity">
               <p>Humidity</p>
-              {data.main && <p>{data.main.humidity} %</p>}
+              <p>{data.main.humidity} %</p>
             </div>
 
             <div className="pressure">
               <p>Pressure</p>
-              {data.main && <p>{data.main.pressure} mb</p>}
+              <p>{data.main.pressure} mb</p>
             </div>
 
             <div className="wind">
               <p>Wind</p>
-              {data.wind && <p>{data.wind.speed.toFixed()} m/s</p>}
+              <p>{data.wind.speed.toFixed()} m/s</p>
             </div>
           </section>
 
