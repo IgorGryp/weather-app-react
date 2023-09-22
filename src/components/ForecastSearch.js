@@ -17,7 +17,7 @@ function ForecastSearch({ locationId, setForecastList }) {
           console.error('API call error:', error);
         });
     }
-  }, [locationId]);
+  }, [locationId]); // eslint-disable-line
 
   return <div></div>;
 }

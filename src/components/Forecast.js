@@ -29,7 +29,7 @@ function Forecast({ forecastList, setForecastList, locationId }) {
           });
       });
     }
-  }, []);
+  }, []); // eslint-disable-line
 
   console.log(forecastList);
 
