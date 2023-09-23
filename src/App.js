@@ -184,6 +184,11 @@ function App() {
               <p>Wind</p>
               <p>{data.wind.speed.toFixed()} m/s</p>
             </div>
+
+            <div className="wind">
+              <p>Visibility</p>
+              <p>{data.visibility / 1000} km</p>
+            </div>
           </section>
 
           {/* <Forecast /> */}
