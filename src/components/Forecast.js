@@ -78,13 +78,13 @@ function Forecast({ forecastList, setForecastList, locationId }) {
 
   // Displays forecast component
   return (
-    <div className="forecast-wrapper">
+    <section className="forecast-wrapper">
       <div>
         <h3 className="forecast-heading">10 DAY FORECAST</h3>
       </div>
       <div className="forecast-items">{forecastItems}</div>
       <ForecastSearch locationId={locationId} setForecastList={setForecastList} />
-    </div>
+    </section>
   );
 }
 

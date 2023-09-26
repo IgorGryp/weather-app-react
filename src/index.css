@@ -114,7 +114,7 @@ body {
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 980px;
   margin: 0 auto;
   margin-top: 1.4rem;
   position: relative;
@@ -127,6 +127,9 @@ body {
 
 .top-section {
   margin: 1rem 1rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
 }
 
 .date,
@@ -143,7 +146,7 @@ body {
   font-size: 1.5rem;
 }
 
-.temp-icon {
+.temp-icon-container {
   display: flex;
 }
 
@@ -153,56 +156,73 @@ body {
   align-items: center;
 }
 
-.icon-div {
+.temp p {
+  font-size: 4rem;
+}
+
+.icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icon {
-  width: 4.4rem;
   margin-left: 0.5rem;
 }
 
-.description-feels-like {
-  display: flex;
-  align-items: center;
-}
-
-.description {
+.weather-description-container {
   margin-left: 0.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   /*   position: relative;
   right: -90%;
   transform-origin: 0 0;
   transform: rotate(270deg); */
 }
 
-.description p {
+.weather-description {
   font-size: 1.2rem;
 }
 
-.description p::first-letter {
+.weather-description-container p::first-letter {
   text-transform: capitalize;
 }
 
-.feels-like p {
+.feels-like {
   font-size: 0.9rem;
+  padding-top: 0.4rem;
 }
 
 /* *********************** BOTTOM SECTION *********************** */
 
 .bottom-section {
   display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  margin: 2rem 1rem;
+  margin: 1rem 0rem;
   padding: 1rem;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
 }
+
+.bottom-section div {
+  padding-right: 4rem;
+}
+
+.humidity-heading,
+.pressure-heading,
+.wind-heading,
+.visibility-heading {
+  font-size: 0.8rem;
+}
+
+.humidity-data,
+.pressure-data,
+.wind-data,
+.visibility-data {
+  padding-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* *********************** LOADER *********************** */
 
 .loader {
   margin: 0 auto;
@@ -304,13 +324,13 @@ body {
 
 .forecast-items {
   display: flex;
+  justify-content: space-between;
+  margin: 1rem;
 }
 
 .forecast-container {
   display: block;
-  margin: 1rem;
-  height: fit-content;
-  width: fit-content;
+  width: 160px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1rem;
@@ -361,7 +381,10 @@ body {
     padding: 0.5rem;
   }
   .bottom-section p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+  .forecast-container {
+    font-size: 0.9rem;
   }
   .modalContainer {
     width: 220px;
@@ -439,10 +462,10 @@ body {
   .content {
     top: 24px;
   }
-  .temp h1 {
+  .temp p {
     font-size: 2.6rem;
   }
-  .description p {
+  .weather-description {
     font-size: 1rem;
   }
   .bottom-section {

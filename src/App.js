@@ -144,50 +144,44 @@ function App() {
               </p>
             </div>
 
-            <div className="temp-icon">
+            <div className="temp-icon-container">
               <div className="temp">
-                <h1>{data.main.temp.toFixed()} °C</h1>
+                <p>{data.main.temp.toFixed()}°C</p>
               </div>
-              <div className="icon-div">
+              <div className="icon-container">
                 <img
                   className="icon"
                   src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                   alt="weather icon"
                 ></img>
               </div>
-              <div className="description">
-                <p>{data.weather[0].description}</p>
+              <div className="weather-description-container">
+                <p className="weather-description">{data.weather[0].description}</p>
+                <p className="feels-like">Feels like {data.main.feels_like.toFixed()} °C</p>
               </div>
             </div>
-
-            <div className="description-feels-like">
-              <div className="feels-like">
-                <p>Feels like {data.main.feels_like.toFixed()} °C</p>
+            {/* ********** BOTTOM SECTION ********** */}
+            {/* Humidity - Pressure - Wind */}
+            <div className="bottom-section">
+              <div className="humidity">
+                <p className="humidity-heading">Humidity</p>
+                <p className="humidity-data">{data.main.humidity} %</p>
               </div>
-            </div>
-          </section>
 
-          {/* ********** BOTTOM SECTION ********** */}
-          {/* Humidity - Pressure - Wind */}
-          <section className="bottom-section">
-            <div className="humidity">
-              <p>Humidity</p>
-              <p>{data.main.humidity} %</p>
-            </div>
+              <div className="pressure">
+                <p className="pressure-heading">Pressure</p>
+                <p className="pressure-data">{data.main.pressure} mb</p>
+              </div>
 
-            <div className="pressure">
-              <p>Pressure</p>
-              <p>{data.main.pressure} mb</p>
-            </div>
+              <div className="wind">
+                <p className="wind-heading">Wind</p>
+                <p className="wind-data">{data.wind.speed.toFixed()} m/s</p>
+              </div>
 
-            <div className="wind">
-              <p>Wind</p>
-              <p>{data.wind.speed.toFixed()} m/s</p>
-            </div>
-
-            <div className="wind">
-              <p>Visibility</p>
-              <p>{data.visibility / 1000} km</p>
+              <div className="visibility">
+                <p className="visibility-heading">Visibility</p>
+                <p className="visibility-data">{data.visibility / 1000} km</p>
+              </div>
             </div>
           </section>
 
