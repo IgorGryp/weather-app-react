@@ -19,7 +19,7 @@ function App() {
   const [locationList, setLocationList] = useState([]);
   const [countryCode, setCountryCode] = useState([]);
   const [locationId, setLocationId] = useState(null);
-  const [forecastList, setForecastList] = useState([]);
+  const [forecastList, setForecastList] = useState([]); // State to store fetched forecast data
 
   // Gets users location
   // Gets the data from API and sets the response data to the state
@@ -161,7 +161,7 @@ function App() {
               </div>
             </div>
             {/* ********** BOTTOM SECTION ********** */}
-            {/* Humidity - Pressure - Wind */}
+            {/* Humidity - Pressure - Wind - Visibility */}
             <div className="bottom-section">
               <div className="humidity">
                 <p className="humidity-heading">Humidity</p>
@@ -185,7 +185,6 @@ function App() {
             </div>
           </section>
 
-          {/* <Forecast /> */}
           <Forecast
             forecastList={forecastList}
             setForecastList={setForecastList}
