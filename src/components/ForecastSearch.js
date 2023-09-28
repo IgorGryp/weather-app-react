@@ -19,7 +19,7 @@ function ForecastSearch({ locationId, setForecastList }) {
     }
   }, [locationId]); // eslint-disable-line
 
-  return <div></div>;
+  /* return <div></div>; */
 }
 
 export default ForecastSearch;

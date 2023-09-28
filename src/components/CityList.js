@@ -29,7 +29,7 @@ function CityList({
             setLocationList(newLocations); // Sets the list off matched cities to the state
             /* setLocationList((prevLocationList) => [...prevLocationList, ...newLocations]); */
           } else {
-            console.log('No matches found for the provided city.');
+            console.error('No matches found for the provided city.');
             setOpenModal(true); // Shows Error Modal if receiving an empty array. API behavior
             setLocationList([]); // Closes the list of cities
           }

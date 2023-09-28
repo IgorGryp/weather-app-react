@@ -1,3 +1,4 @@
+// This component searches weather data for the clicked city by city id.
 import axios from 'axios';
 import { API_KEY, metric_units } from '../constants';
 import { useEffect } from 'react';

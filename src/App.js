@@ -21,12 +21,13 @@ function App() {
   const [locationId, setLocationId] = useState(null);
   const [forecastList, setForecastList] = useState([]); // State to store fetched forecast data
 
-  // Gets users location
-  // Gets the data from API and sets the response data to the state
+  // Identifies the user's location.
+  // Fetches current weather data and forecast data from APIs and sets them to the states
   const searchUserLacation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          // Fetches current weather data
           axios
             .get(
               `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${metric_units}`
@@ -35,6 +36,15 @@ function App() {
               setData(response.data);
               console.log(response.data);
             })
+            .catch((error) => {
+              console.error('API call error:', error);
+            });
+          // Fetches forecast data
+          axios
+            .get(
+              `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${metric_units}`
+            )
+            .then((response) => setForecastList(response.data.list))
             .catch((error) => {
               console.error('API call error:', error);
             });
@@ -48,7 +58,7 @@ function App() {
     }
   };
 
-  // Runs the function to identify the user's location
+  // Runs the function to identify the user's location at first render
   useEffect(() => {
     searchUserLacation();
   }, []);
@@ -115,7 +125,6 @@ function App() {
         setCountryCode={setCountryCode}
         locationId={locationId}
         setLocationId={setLocationId}
-        /* data={data} */
         setData={setData}
         setOpenModal={setOpenModal}
         setUserInput={setUserInput}
@@ -189,6 +198,8 @@ function App() {
             forecastList={forecastList}
             setForecastList={setForecastList}
             locationId={locationId}
+            location={location}
+            data={data}
           />
         </div>
       )}
