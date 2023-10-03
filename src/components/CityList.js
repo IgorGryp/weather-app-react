@@ -49,7 +49,7 @@ function CityList({
   };
 
   return (
-    <div className="location-suggestions-div">
+    <section className="location-suggestions-container">
       {locationId !== 0 && (
         <div>
           <ul>
@@ -83,7 +83,7 @@ function CityList({
           />
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

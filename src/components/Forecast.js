@@ -41,8 +41,8 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
         </div>
         <div className="forecast-temp-and-icon-container">
           <div className="forecast-temp-container">
-            <p className="forecast-temp">{itemAt12.main.temp.toFixed()} °</p>
-            <p className="forecast-temp">{itemAt00.main.temp.toFixed()} °</p>
+            <p className="forecast-temp">{itemAt12.main.temp.toFixed()}°</p>
+            <p className="forecast-temp">{itemAt00.main.temp.toFixed()}°</p>
           </div>
           <img
             className="forecast-icon"
