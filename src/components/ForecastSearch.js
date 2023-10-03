@@ -18,8 +18,6 @@ function ForecastSearch({ locationId, setForecastList }) {
         });
     }
   }, [locationId]); // eslint-disable-line
-
-  /* return <div></div>; */
 }
 
 export default ForecastSearch;
