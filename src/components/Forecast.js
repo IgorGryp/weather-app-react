@@ -1,7 +1,5 @@
-import { weekdays, months } from '../constants';
+import { weekdays } from '../constants';
 import ForecastSearch from './ForecastSearch';
-/* import Swiper from 'swiper';
-import SwiperSlide from 'swiper'; */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -32,16 +30,14 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
 
     let localDay = new Date(itemAt12.dt * 1000).getUTCDay();
     let localDate = new Date(itemAt12.dt * 1000).getUTCDate();
-    let localMonth = new Date(itemAt12.dt * 1000).getUTCMonth();
 
     // Stores HTML elements with forecast in the array
 
     forecastItems.push(
       <SwiperSlide key={itemAt12.dt} className="forecast-container">
-        {/* <div key={itemAt12.dt}> */}
         <div className="forecast-date-container">
           <p className="forecast-date">
-            {weekdays[localDay].substring(0, 3)} {localDate} {/* {months[localMonth]} */}
+            {weekdays[localDay].substring(0, 3)} {localDate}
           </p>
         </div>
         <div className="forecast-temp-and-icon-container">
@@ -55,7 +51,6 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
             alt="weather icon"
           ></img>
         </div>
-        {/* </div> */}
       </SwiperSlide>
     );
   }
