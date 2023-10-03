@@ -61,7 +61,7 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
       <div>
         <h3 className="forecast-heading">10 DAY FORECAST</h3>
       </div>
-      <Swiper
+      <Swiper className='swiper'
         spaceBetween={10}
         slidesPerView={4}
         onSlideChange={() => console.log('slide change')}
