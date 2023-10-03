@@ -95,7 +95,7 @@ function App() {
   /* **************************************************************************************************** */
 
   return (
-    <div className="App">
+    <main className="App">
       {/* ********** SEARCH BAR ********** */}
       <section className="search-bar">
         <div className="search-bar-container">
@@ -134,7 +134,7 @@ function App() {
         /* Spinner from react-spinners by David Hu */
         <PuffLoader color={'#ffffff'} size={200} className="loader" />
       ) : (
-        <div className="content">
+        <section className="content">
           {/* ********** TOP SECTION ********** */}
           {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
           <section className="top-section">
@@ -201,7 +201,7 @@ function App() {
             location={location}
             data={data}
           />
-        </div>
+        </section>
       )}
 
       <Modal
@@ -209,7 +209,7 @@ function App() {
         setOpenModal={setOpenModal}
         setInputIsDisabled={setInputIsDisabled}
       />
-    </div>
+    </main>
   );
 }
 
