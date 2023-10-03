@@ -1,6 +1,9 @@
-import React from 'react';
 import { weekdays, months } from '../constants';
 import ForecastSearch from './ForecastSearch';
+/* import Swiper from 'swiper';
+import SwiperSlide from 'swiper'; */
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 function Forecast({ forecastList, setForecastList, locationId, data }) {
   // Initializes two arrays to store forecast data that match the conditions with the times "12:00" and "00:00"
@@ -32,11 +35,13 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
     let localMonth = new Date(itemAt12.dt * 1000).getUTCMonth();
 
     // Stores HTML elements with forecast in the array
+
     forecastItems.push(
-      <div key={itemAt12.dt} className="forecast-container">
+      <SwiperSlide key={itemAt12.dt} className="forecast-container">
+        {/* <div key={itemAt12.dt}> */}
         <div className="forecast-date-container">
           <p className="forecast-date">
-            {weekdays[localDay].substring(0, 3)}, {localDate} {months[localMonth]}
+            {weekdays[localDay].substring(0, 3)} {localDate} {/* {months[localMonth]} */}
           </p>
         </div>
         <div className="forecast-temp-and-icon-container">
@@ -50,7 +55,8 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
             alt="weather icon"
           ></img>
         </div>
-      </div>
+        {/* </div> */}
+      </SwiperSlide>
     );
   }
 
@@ -60,7 +66,15 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
       <div>
         <h3 className="forecast-heading">10 DAY FORECAST</h3>
       </div>
-      <div className="forecast-items">{forecastItems}</div>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={4}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        <div className="forecast-items">{forecastItems}</div>
+      </Swiper>
+
       <ForecastSearch locationId={locationId} setForecastList={setForecastList} />
     </section>
   );

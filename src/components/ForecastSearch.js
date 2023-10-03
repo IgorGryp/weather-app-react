@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { API_KEY, metric_units } from '../constants';
 
 function ForecastSearch({ locationId, setForecastList }) {
@@ -18,8 +18,6 @@ function ForecastSearch({ locationId, setForecastList }) {
         });
     }
   }, [locationId]); // eslint-disable-line
-
-  /* return <div></div>; */
 }
 
 export default ForecastSearch;

@@ -115,8 +115,10 @@ body {
 
 .content {
   max-width: 980px;
-  margin: 0 auto;
-  margin-top: 1.4rem;
+
+  /* margin: 1.4rem 1rem 0rem 1rem; */
+  margin: 1rem auto 0rem auto;
+  padding: 0rem 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -126,7 +128,7 @@ body {
 /* *********************** TOP SECTION *********************** */
 
 .top-section {
-  margin: 1rem;
+  margin: 1rem 0rem;
   border-radius: 10px;
   /* background: url(assets/sky.jpg); */
   background-color: rgba(255, 255, 255, 0.1);
@@ -323,7 +325,7 @@ body {
 /* *********************** FORECAST COMPONENT *********************** */
 .forecast-heading {
   text-align: start;
-  margin: 0 1rem;
+  margin: 1rem;
   font-size: 16px;
 }
 
@@ -335,10 +337,11 @@ body {
 
 .forecast-container {
   display: block;
-  width: 160px;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1rem;
+  /* margin: 0 1rem; */
 }
 
 .forecast-date-container {
@@ -354,13 +357,6 @@ body {
   align-items: center;
   height: 60px;
 }
-
-/* .forecast-temp-container {
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-} */
 
 .forecast-temp-container p:nth-child(1) {
   font-weight: 800;
@@ -427,6 +423,35 @@ body {
   .location-pin-container {
     right: 1rem;
   }
+  .weather-description {
+    font-size: 1rem;
+  }
+  .bottom-section div {
+    padding-right: 3rem;
+  }
+  .humidity-heading,
+  .pressure-heading,
+  .wind-heading,
+  .visibility-heading {
+    font-size: 0.8rem;
+  }
+  .humidity-data,
+  .pressure-data,
+  .wind-data,
+  .visibility-data {
+    padding-top: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .forecast-date-container {
+    padding-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .forecast-temp {
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 506px) {
@@ -453,6 +478,20 @@ body {
   .location-suggestions-container li {
     width: 100%;
   }
+  .bottom-section div {
+    padding-right: 2rem;
+  }
+  .forecast-temp-and-icon-container {
+    display: block;
+    height: fit-content;
+  }
+  .forecast-temp {
+    text-align: center;
+  }
+  .forecast-icon {
+    width: 100%;
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -471,10 +510,13 @@ body {
     font-size: 2.6rem;
   }
   .weather-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  .bottom-section {
-    justify-content: space-between;
+  .feels-like {
+    font-size: 0.8rem;
+  }
+  .bottom-section div {
+    padding-right: 1.6rem;
   }
   .modalContainer {
     width: 180px;
