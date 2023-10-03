@@ -502,15 +502,12 @@ body {
   .search-bar-container {
     width: 300px;
   }
-  .content {
-    top: 24px;
-  }
   .temp p {
     font-size: 2.6rem;
   }
   .icon {
-  width: 70px;
-}
+    width: 70px;
+  }
   .weather-description {
     font-size: 0.9rem;
   }
