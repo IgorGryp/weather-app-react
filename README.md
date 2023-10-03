@@ -6,6 +6,7 @@ OpenWeatherMap API.
 Axios library.
 react-spinners by David Hu.
 flaticon - database of free customizable icons.
+Swiper.
 
 SYFTET MED PROJEKTET:
 
@@ -14,9 +15,10 @@ Lära sig om och använda Geolocation API.
 Lära sig att hämta data från ett API och presentera det för användaren baserat på användarens inmatning.
 Att lära sig göra anrop till ett API med Axios istället för Fetch.
 Lära sig att använda Loading Spinners medan data hämtas.
+Lära sig att implementera Swiper slider.
 
 VIKTIGT!
 
 Skapa .env fil och lägg till API Key från OpenWeatherMap för att få applikationen att fungera.
 
-***
+---
