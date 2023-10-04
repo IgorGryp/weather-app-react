@@ -243,7 +243,7 @@ body {
   height: 100%;
 }
 
-.modalContainer {
+.modal-container {
   width: 320px;
   height: 320px;
   position: fixed;
@@ -260,12 +260,12 @@ body {
   align-items: center;
 }
 
-.modalImg {
+.modal-img {
   width: 220px;
   height: 220px;
 }
 
-.closeModalBtn {
+.close-modal-btn {
   position: fixed;
   top: 8px;
   right: 8px;
@@ -274,7 +274,7 @@ body {
   cursor: pointer;
 }
 
-.crossImg {
+.cross-img {
   width: 1.4rem;
 }
 
@@ -325,7 +325,7 @@ body {
 /* *********************** FORECAST COMPONENT *********************** */
 .forecast-heading {
   text-align: start;
-  margin: 1rem;
+  margin: 1rem 0;
   font-size: 16px;
 }
 
@@ -344,7 +344,7 @@ body {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 .forecast-date-container {
@@ -361,18 +361,24 @@ body {
   height: 60px;
 }
 
-.forecast-temp-container p:nth-child(1) {
+.forecast-day-temp {
   font-weight: 800;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .forecast-temp {
-  font-size: 16px;
+  font-size: 1rem;
+}
+
+.forecast-icon-and-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
 }
 
 .forecast-icon {
   width: 60px;
-  margin-left: 12px;
 }
 
 /* *********************** MEDIA QUERIES *********************** */
@@ -383,22 +389,43 @@ body {
   }
 }
 
+@media screen and (max-width: 920px) {
+  .forecast-container {
+    display: block;
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   ::placeholder {
     font-size: 1rem;
   }
+  .forecast-temp-and-icon-container {
+    height: fit-content;
+    /* margin-left: 1rem; */
+  }
   .forecast-container {
     font-size: 0.9rem;
   }
-  .modalContainer {
+  .forecast-icon {
+    width: 50px;
+  }
+  .forecast-icon-and-description {
+    flex-direction: column;
+    margin-top: -0.8rem;
+  }
+  .forecast-icon-description {
+    margin-top: -0.5rem;
+  }
+  .modal-container {
     width: 220px;
     height: 220px;
   }
-  .modalImg {
+  .modal-img {
     width: 140px;
     height: 140px;
   }
-  .crossImg {
+  .cross-img {
     width: 1.2rem;
   }
 }
@@ -452,12 +479,9 @@ body {
     display: flex;
     justify-content: center;
   }
-  .forecast-temp {
-    font-size: 0.9rem;
-  }
 }
 
-@media screen and (max-width: 506px) {
+@media screen and (max-width: 520px) {
   .App input {
     width: 334px;
   }
@@ -491,9 +515,14 @@ body {
   .forecast-temp {
     text-align: center;
   }
+  .forecast-icon-and-description {
+    margin: 0;
+  }
   .forecast-icon {
-    width: 100%;
     margin-left: 0px;
+  }
+  .forecast-icon-description {
+    margin-top: -0.2rem;
   }
 }
 
@@ -521,18 +550,18 @@ body {
   .bottom-section div {
     padding-right: 1.6rem;
   }
-  .modalContainer {
+  .modal-container {
     width: 180px;
     height: 180px;
   }
-  .modalImg {
+  .modal-img {
     width: 120px;
     height: 120px;
   }
-  .modalMsg {
+  .modal-msg {
     font-size: 1rem;
   }
-  .crossImg {
+  .cross-img {
     width: 1rem;
   }
 }

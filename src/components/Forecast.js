@@ -42,14 +42,20 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
         </div>
         <div className="forecast-temp-and-icon-container">
           <div className="forecast-temp-container">
-            <p className="forecast-temp">{itemAt12.main.temp.toFixed()}°</p>
-            <p className="forecast-temp">{itemAt00.main.temp.toFixed()}°</p>
+            <p className="forecast-temp forecast-day-temp">{itemAt12.main.temp.toFixed()}°</p>
+            <p className="forecast-temp">
+              {/* <span>/</span> */}
+              {itemAt00.main.temp.toFixed()}°
+            </p>
           </div>
-          <img
-            className="forecast-icon"
-            src={`https://openweathermap.org/img/wn/${itemAt12.weather[0].icon}@2x.png`}
-            alt="weather icon"
-          ></img>
+          <div className="forecast-icon-and-description">
+            <img
+              className="forecast-icon"
+              src={`https://openweathermap.org/img/wn/${itemAt12.weather[0].icon}@2x.png`}
+              alt="weather icon"
+            ></img>
+            <p className="forecast-icon-description">{itemAt12.weather[0].main}</p>
+          </div>
         </div>
       </SwiperSlide>
     );
@@ -59,9 +65,10 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
   return (
     <section className="forecast-wrapper">
       <div>
-        <h3 className="forecast-heading">10 DAY FORECAST</h3>
+        <h3 className="forecast-heading">5 DAY FORECAST</h3>
       </div>
-      <Swiper className='swiper'
+      <Swiper
+        className="swiper"
         spaceBetween={10}
         slidesPerView={4}
         onSlideChange={() => console.log('slide change')}
