@@ -405,7 +405,7 @@ body {
 }
 .swiper-pagination-bullet{
   width: 30px !important;
-  height: 4px !important;
+  height: 2px !important;
   border-radius: 10px !important;
 }
 
