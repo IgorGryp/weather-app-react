@@ -403,10 +403,14 @@ body {
   position: unset !important;
   margin-top: -4px !important;
 }
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   width: 30px !important;
-  height: 2px !important;
+  height: 3px !important;
   border-radius: 10px !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* *********************** MEDIA QUERIES *********************** */
