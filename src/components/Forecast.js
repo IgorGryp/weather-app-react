@@ -1,7 +1,12 @@
 import { weekdays } from '../constants';
 import ForecastSearch from './ForecastSearch';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css/bundle';
+/* import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar'; */
 
 function Forecast({ forecastList, setForecastList, locationId, data }) {
   // Initializes two arrays to store forecast data that match the conditions with the times "12:00" and "00:00"
@@ -69,8 +74,12 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
       </div>
       <Swiper
         className="swiper"
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
         slidesPerView={4}
+        /* navigation */
+        pagination={{ clickable: true }}
+        /* scrollbar={{ draggable: true }} */
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
