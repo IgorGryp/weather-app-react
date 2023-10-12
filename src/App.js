@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_KEY, metric_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
-import Modal from './components/Modal';
-import CityList from './components/CityList';
-import LocationButton from './components/LocationButton';
-// import Forecast from './components/Forecast';
-// import FC from './components/FC';
+import Modal from './components/Modal/Modal';
+import CityList from './components/CityList/CityList';
+import LocationButton from './components/LocationButton/LocationButton';
 import searchImg from './assets/search.png';
 import Forecast from './components/Forecast';
 

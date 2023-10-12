@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +11,12 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
+
+$lightTextColor: #f8f8f8;
+$darkTextColor: #000000;
+$primaryBackground: rgba(255, 255, 255, 0.1);
 
 .App {
   width: 100%;
@@ -21,7 +24,7 @@ body {
   position: relative;
   /* background: linear-gradient(rgb(36, 77, 114) 0%, rgb(7, 33, 59) 100%); */
   background: linear-gradient(rgb(49, 116, 183) 0%, rgb(0, 62, 124) 87.55%);
-  color: #f8f8f8;
+  color: $lightTextColor;
   z-index: 1;
 }
 
@@ -64,24 +67,20 @@ body {
   font-size: 1.2rem;
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.1);
-  color: #f8f8f8;
+  background: $primaryBackground;
+  color: $lightTextColor;
   width: 360px;
   height: 42px;
 }
 
-::-moz-placeholder {
-  color: #f8f8f8;
-}
-
 ::placeholder {
-  color: #f8f8f8;
+  color: $lightTextColor;
 }
 
 .search-button-container {
   height: 40px;
   width: 60px;
-  background: rgba(255, 255, 255, 0.1);
+  background: $primaryBackground;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -101,7 +100,7 @@ body {
   width: 20px;
 }
 
-.location-pin-container {
+/* .location-pin-container {
   height: 40px;
   width: 40px;
   display: flex;
@@ -112,12 +111,12 @@ body {
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-}
+  background: $primaryBackground;
+} */
 
-.location-pin {
+/* .location-pin {
   width: 26px;
-}
+} */
 
 .content {
   max-width: 980px;
@@ -130,12 +129,12 @@ body {
 }
 
 /* *********************** TOP SECTION *********************** */
+
 .top-section {
   margin-top: 1rem;
   border-radius: 10px;
   /* background: url(assets/sky.jpg); */
-  background: rgba(255, 255, 255, 0.1);
-  -o-object-fit: cover;
+  background: $primaryBackground;
   object-fit: cover;
   padding: 1rem;
 }
@@ -199,6 +198,7 @@ body {
 }
 
 /* *********************** BOTTOM SECTION *********************** */
+
 .bottom-section {
   display: flex;
   margin: 1rem 0rem;
@@ -224,22 +224,24 @@ body {
 }
 
 /* *********************** LOADER *********************** */
+
 .loader {
   margin: 0 auto;
   margin-top: 8rem;
 }
 
 /* *********************** MODAL *********************** */
-.overlay {
+
+/* .overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
-.modal-container {
+/* .modal-container {
   width: 320px;
   height: 320px;
   position: fixed;
@@ -247,7 +249,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  background: #f8f8f8;
+  background-color: #f8f8f8f8;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   display: flex;
@@ -255,7 +257,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 1;
-}
+} */
 
 .modal-img {
   width: 220px;
@@ -276,11 +278,12 @@ body {
 }
 
 .modal-msg {
-  color: #000000;
+  color: $darkTextColor;
 }
 
 /* *********************** SEARCHLOCATION COMPONENT *********************** */
-.location-suggestions-container {
+
+/* .CityList {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,35 +292,30 @@ body {
   position: absolute;
   left: calc(50% - 180px);
   z-index: 1;
-}
-
-.location-suggestions-container ul {
-  background: #c2c2c2;
-}
-
-.location-suggestions-container li {
-  list-style: none;
-  height: 45px;
-  cursor: pointer;
-  width: 360px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  color: #000000;
-}
-
-.location-suggestions-container li:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.location-suggestions {
-  width: 160px;
-}
-
-.location-uggestions-icon {
-  width: 32px;
-}
+  ul {
+    background-color: #c2c2c2;
+  }
+  li {
+    list-style: none;
+    height: 45px;
+    cursor: pointer;
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    color: $darkTextColor;
+  }
+  li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .location-suggestions {
+    width: 160px;
+  }
+  .location-uggestions-icon {
+    width: 32px;
+  }
+} */
 
 /* *********************** FORECAST COMPONENT *********************** */
 .forecast-heading {
@@ -339,7 +337,7 @@ body {
 .forecast-container {
   display: block;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: $primaryBackground;
   border-radius: 10px;
   padding: 1rem 2rem;
 }
@@ -382,39 +380,36 @@ body {
   position: unset !important;
   margin-top: -4px !important;
 }
-
 .swiper-pagination-bullet {
   width: 30px !important;
   height: 3px !important;
   border-radius: 10px !important;
 }
-
 .swiper-pagination-bullet-active {
   opacity: 1 !important;
   background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* *********************** MEDIA QUERIES *********************** */
+
 @media screen and (max-width: 992px) {
   .content {
     margin-top: 0rem;
   }
 }
+
 @media screen and (max-width: 920px) {
   .forecast-container {
     display: block;
     padding: 1rem;
   }
 }
+
 @media screen and (max-width: 768px) {
-  ::-moz-placeholder {
-    font-size: 1rem;
-  }
   ::placeholder {
     font-size: 1rem;
   }
   .forecast-temp-and-icon-container {
-    height: -moz-fit-content;
     height: fit-content;
     /* margin-left: 1rem; */
   }
@@ -431,10 +426,10 @@ body {
   .forecast-icon-description {
     margin-top: -0.5rem;
   }
-  .modal-container {
+  /*   .modal-container {
     width: 220px;
     height: 220px;
-  }
+  } */
   .modal-img {
     width: 140px;
     height: 140px;
@@ -443,6 +438,7 @@ body {
     width: 1.2rem;
   }
 }
+
 @media screen and (max-width: 576px) {
   .App input {
     width: 420px;
@@ -455,17 +451,18 @@ body {
     width: 420px;
     margin: initial;
   }
-  .location-suggestions-container {
+  /*   .location-suggestions-container {
     margin: initial;
     margin-left: 1rem;
     width: 420px;
+    left: 0;
   }
   .location-suggestions-container li {
     width: 420px;
-  }
-  .location-pin-container {
+  } */
+  /*   .location-pin-container {
     right: 1rem;
-  }
+  } */
   .weather-description {
     font-size: 1rem;
   }
@@ -493,6 +490,7 @@ body {
     justify-content: center;
   }
 }
+
 @media screen and (max-width: 520px) {
   .App input {
     width: 334px;
@@ -505,7 +503,7 @@ body {
     width: 334px;
     margin: initial;
   }
-  .location-suggestions-container {
+  /* .location-suggestions-container {
     width: calc(100% - 2rem);
   }
   .location-suggestions-container div {
@@ -516,13 +514,12 @@ body {
   }
   .location-suggestions-container li {
     width: 100%;
-  }
+  } */
   .bottom-section div {
     padding-right: 2rem;
   }
   .forecast-temp-and-icon-container {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .forecast-temp {
@@ -538,6 +535,7 @@ body {
     margin-top: -0.2rem;
   }
 }
+
 @media screen and (max-width: 420px) {
   .App input {
     padding: 0.7rem 1rem;
@@ -562,10 +560,10 @@ body {
   .bottom-section div {
     padding-right: 1.6rem;
   }
-  .modal-container {
+  /*   .modal-container {
     width: 180px;
     height: 180px;
-  }
+  } */
   .modal-img {
     width: 120px;
     height: 120px;
@@ -577,6 +575,7 @@ body {
     width: 1rem;
   }
 }
+
 @media screen and (max-width: 386px) {
   .App input {
     width: 280px;
@@ -590,6 +589,7 @@ body {
     margin: initial;
   }
 }
+
 @media screen and (max-width: 368px) {
   .App input {
     width: 260px;
@@ -602,10 +602,12 @@ body {
     width: 260px;
     margin: initial;
   }
+
   .bottom-section {
     justify-content: space-between;
   }
 }
+
 @media screen and (max-height: 500px) {
   .App {
     height: auto;

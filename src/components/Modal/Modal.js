@@ -1,6 +1,7 @@
 import React from 'react';
-import cloudImg from '../assets/cloud-01.png';
-import crossImg from '../assets/cross.png';
+import cloudImg from '../../assets/cloud-01.png';
+import crossImg from '../../assets/cross.png';
+import './Modal.scss';
 
 const Modal = ({ openModal, setOpenModal, setInputIsDisabled }) => {
   // If openModal is false no Modal is displayed.
@@ -13,7 +14,7 @@ const Modal = ({ openModal, setOpenModal, setInputIsDisabled }) => {
   };
 
   return (
-    <div>
+    <div className="Modal">
       <div onClick={() => handleModal()} className="overlay">
         <div onClick={(e) => e.stopPropagation()} className="modal-container">
           <button onClick={() => handleModal()} className="close-modal-btn">

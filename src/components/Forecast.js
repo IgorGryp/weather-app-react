@@ -1,5 +1,5 @@
 import { weekdays } from '../constants';
-import ForecastSearch from './ForecastSearch';
+import ForecastSearch from './ForecastSearch/ForecastSearch';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css/bundle';
