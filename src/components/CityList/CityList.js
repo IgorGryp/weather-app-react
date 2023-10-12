@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect } from 'react';
-import { API_KEY, metric_units } from '../constants';
-import WeatherSearch from './WeatherSearch';
+import { API_KEY, metric_units } from '../../constants';
+import WeatherSearch from '../WeatherSearch/WeatherSearch';
+import './CityList.scss';
 
 function CityList({
   location,
@@ -49,7 +50,7 @@ function CityList({
   };
 
   return (
-    <section className="location-suggestions-container">
+    <section className="CityList">
       {locationId !== 0 && (
         <div>
           <ul>

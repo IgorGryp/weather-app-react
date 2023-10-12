@@ -1,9 +1,10 @@
 import React from 'react';
-import pinImg from '../assets/location.png';
+import pinImg from '../../assets/location.png';
+import './LocationButton.scss';
 
 function LocationButton({ searchUserLacation }) {
   return (
-    <div className="location-pin-container" onClick={() => searchUserLacation()}>
+    <div className="LocationButton" onClick={() => searchUserLacation()}>
       <img src={pinImg} className="location-pin" alt="location pin"></img>
     </div>
   );
