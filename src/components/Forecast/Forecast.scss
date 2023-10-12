@@ -1,0 +1,97 @@
+@import '../../index.scss';
+
+.Forecast {
+  .forecast-heading {
+    text-align: start;
+    margin: 1rem 0;
+    font-size: 16px;
+  }
+  .Swiper {
+    margin-bottom: 4rem;
+    .swiper-pagination {
+      position: unset !important;
+      margin-top: -4px !important;
+    }
+    .swiper-pagination-bullet {
+      width: 30px !important;
+      height: 3px !important;
+      border-radius: 10px !important;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1 !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+  .SwiperSlide {
+    display: block;
+    width: 100%;
+    background: $primaryBackground;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    @media screen and (max-width: 920px) {
+      display: block;
+      padding: 1rem;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+  .forecast-date-container {
+    padding-bottom: 1rem;
+    /*     width: 100%;
+    display: flex;
+    justify-content: left; */
+    @media screen and (max-width: 576px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .forecast-temp-and-icon-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 60px;
+    @media screen and (max-width: 520px) {
+      display: block;
+      height: fit-content;
+    }
+  }
+  .forecast-temp {
+    font-size: 1rem;
+    @media screen and (max-width: 520px) {
+      text-align: center;
+    }
+  }
+  .forecast-day-temp {
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .forecast-icon-and-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      margin-top: -0.8rem;
+    }
+    @media screen and (max-width: 520px) {
+      margin: 0;
+    }
+  }
+  .forecast-icon {
+    width: 60px;
+    @media screen and (max-width: 768px) {
+      width: 50px;
+    }
+    // @media screen and (max-width: 520px) {
+    //   margin-left: 0px;
+    // }
+  }
+  .forecast-icon-description {
+    margin-top: -0.5rem;
+    @media screen and (max-width: 520px) {
+      margin-top: -0.2rem;
+    }
+  }
+}

@@ -1,7 +1,8 @@
-import { weekdays } from '../constants';
-import ForecastSearch from './ForecastSearch/ForecastSearch';
+import { weekdays } from '../../constants';
+import ForecastSearch from '../ForecastSearch/ForecastSearch';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import './Forecast.scss';
 import 'swiper/css/bundle';
 /* import 'swiper/css';
 import 'swiper/css/navigation';
@@ -39,7 +40,7 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
     // Stores HTML elements with forecast in the array
 
     forecastItems.push(
-      <SwiperSlide key={itemAt12.dt} className="forecast-container">
+      <SwiperSlide key={itemAt12.dt} className="SwiperSlide">
         <div className="forecast-date-container">
           <p className="forecast-date">
             {weekdays[localDay].substring(0, 3)} {localDate}
@@ -49,7 +50,6 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
           <div className="forecast-temp-container">
             <p className="forecast-temp forecast-day-temp">{itemAt12.main.temp.toFixed()}°</p>
             <p className="forecast-temp">
-              {/* <span>/</span> */}
               {itemAt00.main.temp.toFixed()}°
             </p>
           </div>
@@ -68,12 +68,12 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
 
   // Displays forecast component
   return (
-    <section className="forecast-wrapper">
+    <section className="Forecast">
       <div>
         <h3 className="forecast-heading">5 DAY FORECAST</h3>
       </div>
       <Swiper
-        className="swiper"
+        className="Swiper"
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
         slidesPerView={4}
@@ -83,7 +83,7 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <div className="forecast-items">{forecastItems}</div>
+        <div className="forecast-items-container">{forecastItems}</div>
       </Swiper>
 
       <ForecastSearch locationId={locationId} setForecastList={setForecastList} />

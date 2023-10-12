@@ -6,7 +6,7 @@ import Modal from './components/Modal/Modal';
 import CityList from './components/CityList/CityList';
 import LocationButton from './components/LocationButton/LocationButton';
 import searchImg from './assets/search.png';
-import Forecast from './components/Forecast';
+import Forecast from './components/Forecast/Forecast';
 
 function App() {
   const [data, setData] = useState({});
@@ -130,17 +130,15 @@ function App() {
 
       {Object.keys(data).length === 0 ? (
         /* Spinner from react-spinners by David Hu */
-        <PuffLoader color={'#ffffff'} size={200} className="loader" />
+        <PuffLoader color={'#ffffff'} size={200} className="PuffLoader" />
       ) : (
         <section className="content">
-          {/* ********** TOP SECTION ********** */}
-          {/* Location - Country - Date - Time - Temp - Icon - Description - Feels like */}
-          <section className="top-section">
+          {/* ********** MAIN WEATHER SECTION ********** */}
+          <section className="main-weather-section">
             <div className="location">
               <h2>{data.name}</h2>
               <h2>, {data.sys.country}</h2>
             </div>
-
             <div className="date-time">
               <p className="date">
                 {weekdays[localDay]}, {months[localMonth]} {localDate}
@@ -150,7 +148,6 @@ function App() {
                 {localMinutes < 10 ? '0' + localMinutes : '' + localMinutes}
               </p>
             </div>
-
             <div className="temp-icon-container">
               <div className="temp">
                 <p>{data.main.temp.toFixed()}°C</p>
@@ -167,9 +164,8 @@ function App() {
                 <p className="feels-like">Feels like {data.main.feels_like.toFixed()} °C</p>
               </div>
             </div>
-            {/* ********** BOTTOM SECTION ********** */}
-            {/* Humidity - Pressure - Wind - Visibility */}
-            <div className="bottom-section">
+            {/* ********** ADDITIONAL WEATHER INFO SECTION ********** */}
+            <div className="additional-weather-info-section">
               <div className="humidity">
                 <p className="humidity-heading">Humidity</p>
                 <p className="humidity-data">{data.main.humidity} %</p>
