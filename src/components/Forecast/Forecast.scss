@@ -35,12 +35,12 @@
     @media screen and (max-width: 768px) {
       font-size: 0.9rem;
     }
+    @media screen and (max-width: 368px) {
+      padding: 0.8rem;
+    }
   }
   .forecast-date-container {
     padding-bottom: 1rem;
-    /*     width: 100%;
-    display: flex;
-    justify-content: left; */
     @media screen and (max-width: 576px) {
       display: flex;
       justify-content: center;
