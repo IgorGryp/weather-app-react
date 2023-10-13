@@ -7,6 +7,7 @@ Axios library.
 react-spinners by David Hu.
 flaticon - database of free customizable icons.
 Swiper.
+SASS.
 
 SYFTET MED PROJEKTET:
 
