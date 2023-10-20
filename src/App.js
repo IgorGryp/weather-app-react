@@ -7,6 +7,7 @@ import CityList from './components/CityList/CityList';
 import LocationButton from './components/LocationButton/LocationButton';
 import searchImg from './assets/search.png';
 import Forecast from './components/Forecast/Forecast';
+import Logos from './components/Logos/Logos';
 
 function App() {
   const [data, setData] = useState({});
@@ -197,6 +198,8 @@ function App() {
           />
         </section>
       )}
+
+      <Logos />
 
       <Modal
         openModal={openModal}
