@@ -1,17 +1,3 @@
-/* $logoScroll: (
-  animation-duration: 50s,
-  animation-timing-function: linear,
-  animation-delay: 0s,
-  animation-iteration-count: infinite,
-  animation-direction: normal,
-  animation-fill-mode: none,
-  animation-play-state: running,
-  animation-name: logoScroll,
-  animation-timeline: auto,
-  animation-range-start: normal,
-  animation-range-end: normal,
-); */
-
 @keyframes logoScroll {
   0% {
     transform: translate(0, 0);
@@ -20,15 +6,6 @@
     transform: translate(-5350px, 0);
   }
 }
-
-/* @keyframes logoScroll {
-  from {
-    left: 100%;
-  }
-  to {
-    left: -200%;
-  }
-} */
 
 .logos-section {
   max-width: 980px;
@@ -39,36 +16,34 @@
   padding: 0 1rem 1rem 1rem;
   background-clip: content-box;
   border-radius: 10px;
-}
-
-.logos-container {
-  height: 100px;
-  position: relative;
-  min-height: 60px;
-  /* width: 900px; */
-  width: 100%;
-  background-color: #f8f8f8;
-  background-clip: content-box;
-  border-radius: 10px;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-.logos {
-  margin: 0 auto;
-  width: 100%;
-  height: 60px;
-  white-space: nowrap;
-  overflow: hidden;
-  position: absolute;
-}
-.logos img {
-  height: 60px;
-  display: inline-block;
-  padding-left: 970px;
-  animation: logoScroll 50s linear infinite;
-}
-.logos-2 img {
-  animation-delay: 25s;
+  .logos-container {
+    height: 100px;
+    position: relative;
+    min-height: 60px;
+    /* width: 900px; */
+    width: 100%;
+    background-color: #f8f8f8;
+    background-clip: content-box;
+    border-radius: 10px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    .logos {
+      margin: 0 auto;
+      width: 100%;
+      height: 60px;
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+    }
+    .logos img {
+      height: 60px;
+      display: inline-block;
+      padding-left: 970px;
+      animation: logoScroll 50s linear infinite;
+    }
+    .logos-2 img {
+      animation-delay: 25s;
+    }
+  }
 }
