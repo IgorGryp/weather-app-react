@@ -17,6 +17,7 @@ body {
 $lightTextColor: #f8f8f8;
 $darkTextColor: #000000;
 $primaryBackground: rgba(255, 255, 255, 0.1);
+$hoverBackground: rgba(255, 255, 255, 0.2);
 
 .App {
   width: 100%;
@@ -108,19 +109,17 @@ $primaryBackground: rgba(255, 255, 255, 0.1);
   .search-button-container {
     height: 40px;
     width: 60px;
-    /* background: $primaryBackground; */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 1px;
     cursor: pointer;
     border-radius: 0px 25px 25px 0px;
-    /* border-left: 1px solid rgba(255, 255, 255, 0.8); */
     display: flex;
     justify-content: center;
     align-items: center;
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background: $hoverBackground;
     }
     .search-button {
       width: 20px;
