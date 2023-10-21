@@ -14,8 +14,7 @@
   align-items: center; */
   margin: 0 auto;
   padding: 0 1rem 1rem 1rem;
-  background-clip: content-box;
-  border-radius: 10px;
+  /* background-clip: content-box; */
   .logos-container {
     height: 100px;
     position: relative;
@@ -24,7 +23,7 @@
     width: 100%;
     background-color: #f8f8f8;
     background-clip: content-box;
-    border-radius: 10px;
+    border-radius: 4px;
     display: grid;
     justify-items: center;
     align-items: center;
