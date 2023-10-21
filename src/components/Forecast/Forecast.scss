@@ -21,6 +21,9 @@
       opacity: 1 !important;
       background: rgba(255, 255, 255, 0.1) !important;
     }
+    @media screen and (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
   }
   .SwiperSlide {
     display: block;
