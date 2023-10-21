@@ -23,10 +23,11 @@
     align-items: center;
     padding: 0 1rem;
     color: $darkTextColor;
+    &:hover {
+      background-color: #e8e8e8;
+    }
   }
-  li:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+
   .location-suggestions {
     width: 160px;
   }
