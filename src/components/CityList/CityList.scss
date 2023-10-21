@@ -6,11 +6,13 @@
   align-items: center;
   width: 360px;
   margin: 0 auto;
+  border-radius: 14px;
   position: absolute;
   left: calc(50% - 180px);
   z-index: 1;
   ul {
-    background-color: #c2c2c2;
+    background-color: #dfdfdf;
+    border-radius: 4px;
   }
   li {
     list-style: none;
