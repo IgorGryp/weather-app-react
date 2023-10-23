@@ -2,12 +2,12 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { API_KEY, metric_units } from '../../constants';
 
-function ForecastSearch({ locationId, setForecastList }) {
+function ForecastSearch({ locationId, setForecastList, units }) {
   useEffect(() => {
     if (locationId !== null) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/forecast?id=${locationId}&appid=${API_KEY}&units=${metric_units}`
+          `https://api.openweathermap.org/data/2.5/forecast?id=${locationId}&appid=${API_KEY}&units=${units}`
         )
         .then((response) => {
           setForecastList(response.data.list);
@@ -17,7 +17,7 @@ function ForecastSearch({ locationId, setForecastList }) {
           console.error('API call error:', error);
         });
     }
-  }, [locationId]); // eslint-disable-line
+  }, [locationId, units]); // eslint-disable-line
 }
 
 export default ForecastSearch;

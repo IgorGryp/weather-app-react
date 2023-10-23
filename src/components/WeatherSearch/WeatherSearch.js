@@ -3,13 +3,13 @@ import axios from 'axios';
 import { API_KEY, metric_units } from '../../constants';
 import { useEffect } from 'react';
 
-function WeatherSearch({ locationId, setLocation, setData, setOpenModal }) {
+function WeatherSearch({ locationId, setLocation, setData, setOpenModal, units }) {
   // Gets data for entered location from API and sets the response data to the state
   useEffect(() => {
     if (locationId !== null) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?id=${locationId}&appid=${API_KEY}&units=${metric_units}`
+          `https://api.openweathermap.org/data/2.5/weather?id=${locationId}&appid=${API_KEY}&units=${units}`
         )
         .then((response) => {
           setData(response.data);
@@ -21,7 +21,7 @@ function WeatherSearch({ locationId, setLocation, setData, setOpenModal }) {
         });
       setLocation('');
     }
-  }, [locationId, setData, setLocation]);
+  }, [locationId, setData, setLocation, units]);
 }
 
 export default WeatherSearch;

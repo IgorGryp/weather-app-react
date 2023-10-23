@@ -14,13 +14,14 @@ function CityList({
   setData,
   setOpenModal,
   setUserInput,
+  units,
 }) {
   // Fetching the list of matching cities
   useEffect(() => {
     location && // Checks if there any user input before request
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/find?&q=${location}&appid=${API_KEY}&units=${metric_units}`
+          `https://api.openweathermap.org/data/2.5/find?&q=${location}&appid=${API_KEY}&units=${units}`
         )
         .then((response) => {
           console.log(response.data.list);
@@ -40,7 +41,7 @@ function CityList({
           setOpenModal(true); // Shows Error Modal if request fails
           setLocationList([]); // Closes the list of cities
         });
-  }, [location, setLocationList, setOpenModal]);
+  }, [location, setLocationList, setOpenModal, units]);
 
   // Handles click event on city from city list
   const handleClick = (itemId) => {
@@ -81,6 +82,7 @@ function CityList({
             setLocation={setLocation}
             setData={setData}
             setOpenModal={setOpenModal}
+            units={units}
           />
         </div>
       )}
