@@ -1,4 +1,5 @@
 import React from 'react';
+import './UnitsSwitcher.scss';
 
 function UnitsSwitcher({ metricUnits, setMetricUnits }) {
   const toggleUnits = () => {
@@ -6,8 +7,8 @@ function UnitsSwitcher({ metricUnits, setMetricUnits }) {
   };
 
   return (
-    <div>
-      <button onClick={toggleUnits}>{metricUnits ? 'Imperial' : 'Metric'}</button>
+    <div className="units-switcher-container">
+      <button onClick={toggleUnits}>{metricUnits ? '°C' : '°F'}</button>
     </div>
   );
 }
