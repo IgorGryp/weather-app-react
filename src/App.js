@@ -160,7 +160,10 @@ function App() {
             </div>
             <div className="temp-icon-container">
               <div className="temp">
-                <p>{data.main.temp.toFixed()}°C</p>
+                <p>
+                  {data.main.temp.toFixed()}
+                  {metricUnits ? '°C' : '°F'}
+                </p>
               </div>
               <div className="icon-container">
                 <img
@@ -171,7 +174,10 @@ function App() {
               </div>
               <div className="weather-description-container">
                 <p className="weather-description">{data.weather[0].description}</p>
-                <p className="feels-like">Feels like {data.main.feels_like.toFixed()} °C</p>
+                <p className="feels-like">
+                  Feels like {data.main.feels_like.toFixed()}
+                  {metricUnits ? '°C' : '°F'}
+                </p>
               </div>
             </div>
             {/* ********** ADDITIONAL WEATHER INFO SECTION ********** */}
@@ -188,7 +194,9 @@ function App() {
 
               <div className="wind">
                 <p className="wind-heading">Wind</p>
-                <p className="wind-data">{data.wind.speed.toFixed()} m/s</p>
+                <p className="wind-data">
+                  {data.wind.speed.toFixed()} {metricUnits ? 'm/s' : 'mph'}
+                </p>
               </div>
 
               <div className="visibility">
