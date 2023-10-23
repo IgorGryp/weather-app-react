@@ -205,10 +205,9 @@ function App() {
             data={data}
             units={units}
           />
+          <Logos />
         </section>
       )}
-
-      <Logos />
 
       <Modal
         openModal={openModal}
