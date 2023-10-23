@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect } from 'react';
-import { API_KEY, metric_units } from '../../constants';
+import { API_KEY } from '../../constants';
 
 function ForecastSearch({ locationId, setForecastList, units }) {
   useEffect(() => {
