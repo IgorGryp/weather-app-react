@@ -63,7 +63,7 @@ function App() {
     }
   };
 
-  // Runs the function to identify the user's location at first render
+  // Runs the function to identify the user's location at first render and evry time units changes
   useEffect(() => {
     if (locationId === null) searchUserLacation();
   }, [units]); // eslint-disable-line
@@ -101,7 +101,6 @@ function App() {
 
   return (
     <main className="App">
-      <UnitsSwitcher metricUnits={metricUnits} setMetricUnits={setMetricUnits} />
       {/* ********** SEARCH BAR ********** */}
       <section className="search-bar">
         <div className="search-bar-container">
@@ -144,6 +143,7 @@ function App() {
         <section className="content">
           {/* ********** MAIN WEATHER SECTION ********** */}
           <section className="main-weather-section">
+            <UnitsSwitcher metricUnits={metricUnits} setMetricUnits={setMetricUnits} />
             <div className="location">
               <h2>{data.name}</h2>
               <h2>, {data.sys.country}</h2>
