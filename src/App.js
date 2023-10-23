@@ -21,7 +21,6 @@ function App() {
   const [locationId, setLocationId] = useState(null);
   const [forecastList, setForecastList] = useState([]); // State to store fetched forecast data
   const [metricUnits, setMetricUnits] = useState(true);
-  const [userLocation, setUserLocation] = useState('');
 
   const units = metricUnits ? metric_units : imperial_units;
   console.log(units);
