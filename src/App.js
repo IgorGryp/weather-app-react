@@ -145,8 +145,9 @@ function App() {
           <section className="main-weather-section">
             <UnitsSwitcher metricUnits={metricUnits} setMetricUnits={setMetricUnits} />
             <div className="location">
-              <h2>{data.name}</h2>
-              <h2>, {data.sys.country}</h2>
+              <h2>
+                {data.name}, {data.sys.country}
+              </h2>
             </div>
             <div className="date-time">
               <p className="date">
