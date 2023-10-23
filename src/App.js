@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY, metric_units, months, weekdays } from './constants';
+import { API_KEY, metric_units, imperial_units, months, weekdays } from './constants';
 import PuffLoader from 'react-spinners/PuffLoader';
 import Modal from './components/Modal/Modal';
 import CityList from './components/CityList/CityList';
@@ -8,6 +8,7 @@ import LocationButton from './components/LocationButton/LocationButton';
 import searchImg from './assets/search.png';
 import Forecast from './components/Forecast/Forecast';
 import Logos from './components/Logos/Logos';
+import UnitsSwitcher from './components/UnitsSwitcher/UnitsSwitcher';
 
 function App() {
   const [data, setData] = useState({});
@@ -19,21 +20,28 @@ function App() {
   const [countryCode, setCountryCode] = useState([]);
   const [locationId, setLocationId] = useState(null);
   const [forecastList, setForecastList] = useState([]); // State to store fetched forecast data
+  const [metricUnits, setMetricUnits] = useState(true);
+  const [userLocation, setUserLocation] = useState('');
+
+  const units = metricUnits ? metric_units : imperial_units;
+  console.log(units);
 
   // Identifies the user's location.
   // Fetches current weather data and forecast data from APIs and sets them to the states
   const searchUserLacation = () => {
+    setLocationId(null); // Deletes previous location ID when returning to start page by clicking Location Button
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           // Fetches current weather data
           axios
             .get(
-              `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${metric_units}`
+              `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${units}`
             )
             .then((response) => {
               setData(response.data);
-              console.log(response.data);
+              console.log(response.data.name);
+              setUserLocation(response.data.name);
             })
             .catch((error) => {
               console.error('API call error:', error);
@@ -41,7 +49,7 @@ function App() {
           // Fetches forecast data
           axios
             .get(
-              `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${metric_units}`
+              `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=${units}`
             )
             .then((response) => setForecastList(response.data.list))
             .catch((error) => {
@@ -59,8 +67,8 @@ function App() {
 
   // Runs the function to identify the user's location at first render
   useEffect(() => {
-    searchUserLacation();
-  }, []);
+    if (locationId === null) searchUserLacation();
+  }, [units]); // eslint-disable-line
 
   // Gets local date end time
   let localDay = new Date((data.dt + data.timezone) * 1000).getUTCDay();
@@ -95,6 +103,7 @@ function App() {
 
   return (
     <main className="App">
+      <UnitsSwitcher metricUnits={metricUnits} setMetricUnits={setMetricUnits} />
       {/* ********** SEARCH BAR ********** */}
       <section className="search-bar">
         <div className="search-bar-container">
@@ -127,6 +136,7 @@ function App() {
         setData={setData}
         setOpenModal={setOpenModal}
         setUserInput={setUserInput}
+        units={units}
       />
 
       {Object.keys(data).length === 0 ? (
@@ -195,6 +205,7 @@ function App() {
             locationId={locationId}
             location={location}
             data={data}
+            units={units}
           />
         </section>
       )}

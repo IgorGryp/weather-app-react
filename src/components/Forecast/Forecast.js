@@ -4,12 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import './Forecast.scss';
 import 'swiper/css/bundle';
-/* import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar'; */
 
-function Forecast({ forecastList, setForecastList, locationId, data }) {
+function Forecast({ forecastList, setForecastList, locationId, data, units }) {
   // Initializes two arrays to store forecast data that match the conditions with the times "12:00" and "00:00"
   const itemsAt12 = [];
   const itemsAt00 = [];
@@ -49,9 +45,7 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
         <div className="forecast-temp-and-icon-container">
           <div className="forecast-temp-container">
             <p className="forecast-temp forecast-day-temp">{itemAt12.main.temp.toFixed()}°</p>
-            <p className="forecast-temp">
-              {itemAt00.main.temp.toFixed()}°
-            </p>
+            <p className="forecast-temp">{itemAt00.main.temp.toFixed()}°</p>
           </div>
           <div className="forecast-icon-and-description">
             <img
@@ -86,7 +80,7 @@ function Forecast({ forecastList, setForecastList, locationId, data }) {
         <div className="forecast-items-container">{forecastItems}</div>
       </Swiper>
 
-      <ForecastSearch locationId={locationId} setForecastList={setForecastList} />
+      <ForecastSearch locationId={locationId} setForecastList={setForecastList} units={units} />
     </section>
   );
 }
