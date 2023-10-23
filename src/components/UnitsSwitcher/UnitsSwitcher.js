@@ -8,7 +8,7 @@ function UnitsSwitcher({ metricUnits, setMetricUnits }) {
 
   return (
     <div className="units-switcher-container">
-      <button onClick={toggleUnits}>{metricUnits ? '°C' : '°F'}</button>
+      <button onClick={toggleUnits}>{metricUnits ? '°F' : '°C'}</button>
     </div>
   );
 }
