@@ -40,7 +40,6 @@ function App() {
             .then((response) => {
               setData(response.data);
               console.log(response.data.name);
-              setUserLocation(response.data.name);
             })
             .catch((error) => {
               console.error('API call error:', error);
