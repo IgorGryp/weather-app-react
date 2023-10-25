@@ -24,14 +24,17 @@
       &::after {
         font-size: 16px;
       }
+      @media screen and (max-width: 920px) {
+        display: none;
+      }
     }
     .swiper-button-prev {
-      left: 5px;
+      left: 4px;
       /* transform: translateX(-10px); */
     }
     .swiper-button-next {
       /* transform: translateX(10px); */
-      right: 5px;
+      right: 4px;
     }
     .swiper-pagination {
       position: unset !important;
