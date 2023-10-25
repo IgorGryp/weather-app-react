@@ -71,9 +71,8 @@ function Forecast({ forecastList, setForecastList, locationId, data, units }) {
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
         slidesPerView={4}
-        /* navigation */
+        navigation
         pagination={{ clickable: true }}
-        /* scrollbar={{ draggable: true }} */
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >

@@ -6,8 +6,33 @@
     margin: 1rem 0;
     font-size: 16px;
   }
+  .swiper {
+    position: initial;
+  }
   .Swiper {
+    max-width: 980px;
     margin-bottom: 2.2rem;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: $lightTextColor;
+      background-color: $primaryBackground;
+      width: 24px;
+      height: 24px;
+      border-radius: 25px;
+      top: 67%;
+      &::after {
+        font-size: 16px;
+      }
+    }
+    .swiper-button-prev {
+      left: 5px;
+      /* transform: translateX(-10px); */
+    }
+    .swiper-button-next {
+      /* transform: translateX(10px); */
+      right: 5px;
+    }
     .swiper-pagination {
       position: unset !important;
       margin-top: -4px !important;
