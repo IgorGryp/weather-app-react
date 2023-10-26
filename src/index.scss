@@ -17,6 +17,7 @@ body {
 $lightTextColor: #f8f8f8;
 $darkTextColor: #000000;
 $primaryBackground: rgba(255, 255, 255, 0.1);
+$borderColor: rgba(255, 255, 255, 0.8);
 $hoverBackground: rgba(255, 255, 255, 0.2);
 
 .App {
@@ -79,7 +80,8 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
   input {
     padding: 0.7rem 1rem;
     border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* border: 1px solid $borderColor; */
+    border: none;
     background: $primaryBackground;
     color: $lightTextColor;
     width: 360px;
