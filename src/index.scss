@@ -17,7 +17,7 @@ body {
 $lightTextColor: #f8f8f8;
 $darkTextColor: #000000;
 $primaryBackground: rgba(255, 255, 255, 0.1);
-$borderColor: rgba(255, 255, 255, 0.8);
+$borderColor: rgba(255, 255, 255, 0.2);
 $hoverBackground: rgba(255, 255, 255, 0.2);
 
 .App {
@@ -80,17 +80,25 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
   input {
     padding: 0.7rem 1rem;
     border-radius: 25px;
-    /* border: 1px solid $borderColor; */
     border: none;
+    border: solid 1px $borderColor;
     background: $primaryBackground;
     color: $lightTextColor;
     width: 360px;
     height: 42px;
+    transition: 0.5s;
     &::placeholder {
       color: $lightTextColor;
     }
     &[type='text'] {
       font-size: 1rem;
+    }
+    &[type='text']:hover {
+      box-shadow: 0 0 5pt 0.5pt $borderColor;
+    }
+    &[type='text']:focus {
+      box-shadow: 0 0 5pt 2pt $borderColor;
+      outline-width: 0px;
     }
     @media screen and (max-width: 576px) {
       width: 420px;
@@ -120,9 +128,10 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
-    &:hover {
+    /* transition: 1s; */
+    /* &:hover {
       background: $hoverBackground;
-    }
+    } */
     .search-button {
       width: 20px;
     }

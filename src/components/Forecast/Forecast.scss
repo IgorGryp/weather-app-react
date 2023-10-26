@@ -21,13 +21,17 @@
       height: 24px;
       border-radius: 25px;
       top: 67%;
-      /* border: 1px solid $borderColor; */
+      border: 1px solid $borderColor;
+      transition: 0.5s;
       &::after {
         font-size: 16px;
       }
       &:hover {
-        /* border: 1px solid $borderColor; */
-        background: $hoverBackground;
+        box-shadow: 0 0 5pt 0.5pt $borderColor;
+      }
+      &:focus {
+        box-shadow: 0 0 5pt 2pt $borderColor;
+        outline-width: 0px;
       }
       @media screen and (max-width: 920px) {
         display: none;
