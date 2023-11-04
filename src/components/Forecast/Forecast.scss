@@ -12,7 +12,6 @@
   .Swiper {
     max-width: 980px;
     margin-bottom: 2.2rem;
-
     .swiper-button-prev,
     .swiper-button-next {
       color: $lightTextColor;
@@ -21,17 +20,11 @@
       height: 24px;
       border-radius: 25px;
       top: 67%;
-      border: 1px solid $borderColor;
-      transition: 0.5s;
       &::after {
         font-size: 16px;
       }
       &:hover {
-        box-shadow: 0 0 5pt 0.5pt $borderColor;
-      }
-      &:focus {
-        box-shadow: 0 0 5pt 2pt $borderColor;
-        outline-width: 0px;
+        border: 1px solid $borderColor;
       }
       @media screen and (max-width: 920px) {
         display: none;
@@ -39,24 +32,22 @@
     }
     .swiper-button-prev {
       left: 4px;
-      /* transform: translateX(-10px); */
     }
     .swiper-button-next {
-      /* transform: translateX(10px); */
       right: 4px;
     }
     .swiper-pagination {
       position: unset !important;
       margin-top: -4px !important;
-    }
-    .swiper-pagination-bullet {
-      width: 30px !important;
-      height: 3px !important;
-      border-radius: 10px !important;
-    }
-    .swiper-pagination-bullet-active {
-      opacity: 1 !important;
-      background: rgba(255, 255, 255, 0.1) !important;
+      .swiper-pagination-bullet {
+        width: 30px !important;
+        height: 3px !important;
+        border-radius: 10px !important;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 1 !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
     }
   }
   .SwiperSlide {
@@ -79,57 +70,57 @@
     @media screen and (max-width: 368px) {
       padding: 0.8rem;
     }
-  }
-  .forecast-date-container {
-    padding-bottom: 1rem;
-    @media screen and (max-width: 576px) {
+    .forecast-date-container {
+      padding-bottom: 1rem;
+      @media screen and (max-width: 576px) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .forecast-temp-and-icon-container {
       display: flex;
-      justify-content: center;
-    }
-  }
-  .forecast-temp-and-icon-container {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    height: 60px;
-    @media screen and (max-width: 520px) {
-      display: block;
-      height: fit-content;
-    }
-  }
-  .forecast-temp {
-    font-size: 1rem;
-    @media screen and (max-width: 520px) {
-      text-align: center;
-    }
-  }
-  .forecast-day-temp {
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-  }
-  .forecast-icon-and-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 1rem;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      margin-top: -0.8rem;
-    }
-    @media screen and (max-width: 520px) {
-      margin: 0;
-    }
-  }
-  .forecast-icon {
-    width: 60px;
-    @media screen and (max-width: 768px) {
-      width: 50px;
-    }
-  }
-  .forecast-icon-description {
-    margin-top: -0.5rem;
-    @media screen and (max-width: 520px) {
-      margin-top: -0.2rem;
+      justify-content: left;
+      align-items: center;
+      height: 60px;
+      @media screen and (max-width: 520px) {
+        display: block;
+        height: fit-content;
+      }
+      .forecast-temp {
+        font-size: 1rem;
+        @media screen and (max-width: 520px) {
+          text-align: center;
+        }
+      }
+      .forecast-day-temp {
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+      .forecast-icon-and-description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          margin-top: -0.8rem;
+        }
+        @media screen and (max-width: 520px) {
+          margin: 0;
+        }
+        .forecast-icon {
+          width: 60px;
+          @media screen and (max-width: 768px) {
+            width: 50px;
+          }
+        }
+        .forecast-icon-description {
+          margin-top: -0.5rem;
+          @media screen and (max-width: 520px) {
+            margin-top: -0.2rem;
+          }
+        }
+      }
     }
   }
 }
