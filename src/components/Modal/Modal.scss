@@ -8,10 +8,11 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
   }
   .modal-container {
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -26,44 +27,33 @@
     align-items: center;
     z-index: 1;
     @media screen and (max-width: 768px) {
-      width: 220px;
-      height: 220px;
-    }
-    @media screen and (max-width: 420px) {
       width: 180px;
       height: 180px;
     }
-  }
-  .close-modal-btn {
-    position: fixed;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-  }
-  .cross-img {
-    width: 1.4rem;
-    @media screen and (max-width: 768px) {
-      width: 1.2rem;
+    .close-modal-btn {
+      position: fixed;
+      top: 8px;
+      right: 8px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      cursor: pointer;
+      .cross-img {
+        width: 1.2rem;
+        @media screen and (max-width: 768px) {
+          width: 1rem;
+        }
+      }
     }
-    @media screen and (max-width: 420px) {
-      width: 1rem;
-    }
-  }
-  .modal-img {
-    width: 220px;
-    height: 220px;
-    @media screen and (max-width: 768px) {
+    .modal-img {
       width: 140px;
       height: 140px;
+      @media screen and (max-width: 768px) {
+        width: 120px;
+        height: 120px;
+      }
     }
-    @media screen and (max-width: 420px) {
-      width: 120px;
-      height: 120px;
+    .modal-msg {
+      color: $darkTextColor;
     }
-  }
-  .modal-msg {
-    color: $darkTextColor;
   }
 }
