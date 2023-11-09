@@ -1,5 +1,6 @@
 import React from 'react';
 import './UnitsSwitcher.scss';
+import switcherImg from '../../assets/switcher.png';
 
 function UnitsSwitcher({ metricUnits, setMetricUnits }) {
   const toggleUnits = () => {
@@ -8,7 +9,10 @@ function UnitsSwitcher({ metricUnits, setMetricUnits }) {
 
   return (
     <div className="units-switcher-container">
-      <button onClick={toggleUnits}>{metricUnits ? '°F' : '°C'}</button>
+      <button onClick={toggleUnits}>
+        <img src={switcherImg} alt="units switcher" className="switcher-img" />
+        {metricUnits ? '°F' : '°C'}
+      </button>
     </div>
   );
 }
