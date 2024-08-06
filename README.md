@@ -1,6 +1,8 @@
+ABOUT:
+
 Application lets you easily check the weather using the OpenWeather API. Users can quickly access current weather conditions and a detailed 5-day forecast. The app also offers the convenience of switching between Celsius and Fahrenheit for temperature, as well as metric and imperial units for other measurements.
 
-TEch USED:
+TECH USED:
 
 React.
 Tailwind CSS.
