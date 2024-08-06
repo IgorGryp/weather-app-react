@@ -1,6 +1,7 @@
 TEKNOLOGIER OCH RESURSER SOM ANVÄNDES I DETTA PROJEKT:
 
 React.
+Tailwind CSS.
 Geolocation API.
 OpenWeatherMap API.
 Axios library.
