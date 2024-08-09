@@ -4,15 +4,15 @@ Application lets you easily check the weather using the OpenWeather API. Users c
 
 TECH USED:
 
-React.
-Tailwind CSS.
-Geolocation API.
-OpenWeatherMap API.
-Axios library.
-react-spinners by David Hu.
-flaticon - database of free customizable icons.
-Swiper.
-SASS.
+React
+Tailwind CSS
+Geolocation API
+OpenWeatherMap API
+Axios
+react-spinners by David Hu
+flaticon - database of free customizable icons
+Swiper
+SASS
 
 IMPORTANT!
 

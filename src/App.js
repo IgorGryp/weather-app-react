@@ -180,6 +180,7 @@ function App() {
                 </p>
               </div>
             </div>
+
             {/* ********** ADDITIONAL WEATHER INFO SECTION ********** */}
             <div className="additional-weather-info-section">
               <div className="humidity">

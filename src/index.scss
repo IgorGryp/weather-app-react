@@ -11,8 +11,9 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* user-select: none; */
+  // user-select: none;
 }
+
 /* *********************** VARIABLES ********************** */
 $lightTextColor: #f8f8f8;
 $darkTextColor: #000000;
@@ -27,6 +28,7 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
   background: linear-gradient(rgb(49, 116, 183) 0%, rgb(0, 62, 124) 87.55%);
   color: $lightTextColor;
   z-index: 1;
+
   &::before {
     content: '';
     background: rgba(0, 0, 0, 0.1);
@@ -37,6 +39,7 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
     left: 0;
     z-index: -1;
   }
+
   /* ********************* SEARCH BAR ********************* */
   .search-bar {
     width: 520px;
@@ -47,100 +50,106 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
     align-items: center;
     position: relative;
     margin: 0 auto;
-    @media screen and (max-width: 576px) {
+
+    @media screen and (max-width: 576px), screen and (max-width: 520px) {
       width: initial;
       justify-content: space-between;
     }
-    @media screen and (max-width: 520px) {
-      width: initial;
-      justify-content: space-between;
+
+    .search-bar-container {
+      position: relative;
+      width: 360px;
+      margin: 0 auto;
+
+      @media screen and (max-width: 576px) {
+        width: 420px;
+        margin: initial;
+      }
+      @media screen and (max-width: 520px) {
+        width: 334px;
+      }
+      @media screen and (max-width: 420px) {
+        width: 300px;
+      }
+      @media screen and (max-width: 386px) {
+        width: 280px;
+      }
+      @media screen and (max-width: 368px) {
+        width: 260px;
+      }
+
+      input {
+        padding: 0.7rem 1rem;
+        border-radius: 25px;
+        border: none;
+        border: solid 1px $borderColor;
+        background: $primaryBackground;
+        color: $lightTextColor;
+        width: 360px;
+        height: 42px;
+        transition: 0.5s;
+
+        &::placeholder {
+          color: $lightTextColor;
+        }
+        &[type='text'] {
+          font-size: 1rem;
+        }
+        &[type='text']:hover {
+          box-shadow: 0 0 5pt 0.5pt $borderColor;
+        }
+        &[type='text']:focus {
+          box-shadow: 0 0 5pt 2pt $borderColor;
+          outline-width: 0px;
+        }
+
+        @media screen and (max-width: 576px) {
+          width: 420px;
+        }
+        @media screen and (max-width: 520px) {
+          width: 334px;
+        }
+        @media screen and (max-width: 420px) {
+          width: 300px;
+        }
+        @media screen and (max-width: 386px) {
+          width: 280px;
+        }
+        @media screen and (max-width: 368px) {
+          width: 260px;
+        }
+      }
+    }
+
+    .search-button-container {
+      height: 40px;
+      width: 60px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 1px;
+      cursor: pointer;
+      border-radius: 0px 25px 25px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 1s;
+
+      &:hover {
+        background: $hoverBackground;
+      }
+      .search-button {
+        width: 20px;
+      }
     }
   }
-  .search-bar-container {
-    position: relative;
-    width: 360px;
-    margin: 0 auto;
-    @media screen and (max-width: 576px) {
-      width: 420px;
-      margin: initial;
-    }
-    @media screen and (max-width: 520px) {
-      width: 334px;
-    }
-    @media screen and (max-width: 420px) {
-      width: 300px;
-    }
-    @media screen and (max-width: 386px) {
-      width: 280px;
-    }
-    @media screen and (max-width: 368px) {
-      width: 260px;
-    }
-  }
-  input {
-    padding: 0.7rem 1rem;
-    border-radius: 25px;
-    border: none;
-    border: solid 1px $borderColor;
-    background: $primaryBackground;
-    color: $lightTextColor;
-    width: 360px;
-    height: 42px;
-    transition: 0.5s;
-    &::placeholder {
-      color: $lightTextColor;
-    }
-    &[type='text'] {
-      font-size: 1rem;
-    }
-    &[type='text']:hover {
-      box-shadow: 0 0 5pt 0.5pt $borderColor;
-    }
-    &[type='text']:focus {
-      box-shadow: 0 0 5pt 2pt $borderColor;
-      outline-width: 0px;
-    }
-    @media screen and (max-width: 576px) {
-      width: 420px;
-    }
-    @media screen and (max-width: 520px) {
-      width: 334px;
-    }
-    @media screen and (max-width: 420px) {
-      width: 300px;
-    }
-    @media screen and (max-width: 386px) {
-      width: 280px;
-    }
-    @media screen and (max-width: 368px) {
-      width: 260px;
-    }
-  }
-  .search-button-container {
-    height: 40px;
-    width: 60px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 1px;
-    cursor: pointer;
-    border-radius: 0px 25px 25px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* transition: 1s; */
-    /* &:hover {
-      background: $hoverBackground;
-    } */
-    .search-button {
-      width: 20px;
-    }
-  }
+
   /* *********************** LOADER *********************** */
   .PuffLoader {
     margin: 0 auto;
     margin-top: 8rem;
   }
+
   /* ******************** MAIN SECTION ******************** */
   .content {
     max-width: 980px;
@@ -150,100 +159,121 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     @media screen and (max-width: 992px) {
       margin-top: 0rem;
     }
-  }
-  .main-weather-section {
-    margin-top: 1rem;
-    border-radius: 4px;
-    background-image: url(assets/sky.jpg);
-    background-size: cover;
-    background-position: center;
-    /* background: $primaryBackground; */
-    object-fit: cover;
-    padding: 1rem;
-    position: relative;
-    z-index: 1;
-    &::before {
-      content: '';
-      background: rgba(0, 0, 0, 0.3);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
+
+    .main-weather-section {
+      margin-top: 1rem;
       border-radius: 4px;
-    }
-  }
-  .location {
-    width: 85%;
-  }
-  .date,
-  .time {
-    font-size: 0.9rem;
-    padding: 0.3rem 0rem;
-  }
-  .temp-icon-container {
-    display: flex;
-  }
-  .temp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    p {
-      font-size: 4rem;
-      @media screen and (max-width: 420px) {
-        font-size: 2.6rem;
+      background-image: url(assets/sky.jpg);
+      background-size: cover;
+      background-position: center;
+      // background: $primaryBackground;
+      object-fit: cover;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 4px;
+      }
+
+      .location {
+        width: 85%;
+      }
+
+      .date,
+      .time {
+        font-size: 0.9rem;
+        padding: 0.3rem 0rem;
+      }
+
+      .temp-icon-container {
+        display: flex;
+
+        .temp {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            font-size: 4rem;
+
+            @media screen and (max-width: 420px) {
+              font-size: 2.6rem;
+            }
+          }
+        }
+
+        .icon-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .icon {
+            margin-left: 0.5rem;
+
+            @media screen and (max-width: 420px) {
+              width: 70px;
+            }
+          }
+        }
+
+        .weather-description-container {
+          margin-left: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          p::first-letter {
+            text-transform: capitalize;
+          }
+
+          .weather-description {
+            font-size: 1.2rem;
+
+            @media screen and (max-width: 576px) {
+              font-size: 1rem;
+            }
+            @media screen and (max-width: 420px) {
+              font-size: 0.9rem;
+            }
+          }
+
+          .feels-like {
+            font-size: 0.9rem;
+            padding-top: 0.4rem;
+
+            @media screen and (max-width: 420px) {
+              font-size: 0.8rem;
+            }
+          }
+        }
       }
     }
   }
-  .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .icon {
-    margin-left: 0.5rem;
-    @media screen and (max-width: 420px) {
-      width: 70px;
-    }
-  }
-  .weather-description-container {
-    margin-left: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    p::first-letter {
-      text-transform: capitalize;
-    }
-  }
-  .weather-description {
-    font-size: 1.2rem;
-    @media screen and (max-width: 576px) {
-      font-size: 1rem;
-    }
-    @media screen and (max-width: 420px) {
-      font-size: 0.9rem;
-    }
-  }
-  .feels-like {
-    font-size: 0.9rem;
-    padding-top: 0.4rem;
-    @media screen and (max-width: 420px) {
-      font-size: 0.8rem;
-    }
-  }
-  /* Additional weather info section */
+
+  /* ********** ADDITIONAL WEATHER INFO SECTION *********** */
   .additional-weather-info-section {
     display: flex;
-    margin: 1rem 0rem;
+    margin: 1rem 0;
+
     @media screen and (max-width: 368px) {
       justify-content: space-between;
     }
+
     div {
       padding-right: 4rem;
+
       @media screen and (max-width: 576px) {
         padding-right: 3rem;
       }
@@ -253,31 +283,28 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
       @media screen and (max-width: 420px) {
         padding-right: 1.6rem;
       }
-    }
-    .humidity-heading,
-    .pressure-heading,
-    .wind-heading,
-    .visibility-heading {
-      font-size: 0.8rem;
-    }
-    .humidity-data,
-    .pressure-data,
-    .wind-data,
-    .visibility-data {
-      padding-top: 0.4rem;
-      font-weight: 600;
-      @media screen and (max-width: 576px) {
-        font-size: 0.9rem;
+
+      &-heading {
+        font-size: 0.8rem;
+      }
+
+      &-data {
+        padding-top: 0.4rem;
+        font-weight: 600;
+
+        @media screen and (max-width: 576px) {
+          font-size: 0.9rem;
+        }
       }
     }
   }
 }
 
 /* *********************** MEDIA QUERIES *********************** */
-
 @media screen and (max-height: 500px) {
   .App {
     height: 100%;
+
     &::before {
       height: 100%;
     }
