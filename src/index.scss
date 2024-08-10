@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 
+/* *********************** VARIABLES ********************** */
+$lightTextColor: #f8f8f8;
+$darkTextColor: #000000;
+$primaryBackground: rgba(255, 255, 255, 0.1);
+$borderColor: rgba(255, 255, 255, 0.2);
+$hoverBackground: rgba(255, 255, 255, 0.2);
+
+/* ************************ MIXINS ************************ */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,19 +21,11 @@
 }
 
 body {
-  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // user-select: none;
 }
-
-/* *********************** VARIABLES ********************** */
-$lightTextColor: #f8f8f8;
-$darkTextColor: #000000;
-$primaryBackground: rgba(255, 255, 255, 0.1);
-$borderColor: rgba(255, 255, 255, 0.2);
-$hoverBackground: rgba(255, 255, 255, 0.2);
 
 .App {
   width: 100%;
@@ -42,12 +48,10 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
 
   /* ********************* SEARCH BAR ********************* */
   .search-bar {
+    @include flex-center;
     width: 520px;
     text-align: center;
     padding: 1.4rem 1rem 0.4rem 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     margin: 0 auto;
 
@@ -122,6 +126,7 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
     }
 
     .search-button-container {
+      @include flex-center;
       height: 40px;
       width: 60px;
       position: absolute;
@@ -130,9 +135,6 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
       right: 1px;
       cursor: pointer;
       border-radius: 0px 25px 25px 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       transition: 1s;
 
       &:hover {
@@ -202,9 +204,8 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
         display: flex;
 
         .temp {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include flex-center;
+
           p {
             font-size: 4rem;
 
@@ -215,9 +216,7 @@ $hoverBackground: rgba(255, 255, 255, 0.2);
         }
 
         .icon-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include flex-center;
 
           .icon {
             margin-left: 0.5rem;
