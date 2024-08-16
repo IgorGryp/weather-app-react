@@ -1,9 +1,7 @@
 @import '../../index.scss';
 
 .CityList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   width: 360px;
   margin: 0 auto;
   position: absolute;
@@ -12,43 +10,79 @@
   ul {
     background-color: #f8f8f8;
     border-radius: 4px;
-  }
-  li {
-    list-style: none;
-    height: 45px;
-    cursor: pointer;
-    width: 360px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    color: $darkTextColor;
-    &:hover {
-      background-color: #e8e8e8;
+
+    li {
+      list-style: none;
+      height: 45px;
+      cursor: pointer;
+      width: 360px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      color: $darkTextColor;
+      &:hover {
+        background-color: #e8e8e8;
+      }
+
+      .location-suggestions {
+        width: 160px;
+      }
+
+      .location-uggestions-icon {
+        width: 32px;
+      }
     }
   }
 
-  .location-suggestions {
-    width: 160px;
+  @media screen and (max-width: 576px) {
+    margin: initial;
+    margin-left: 1rem;
+    width: 420px;
+    left: 0;
+
+    ul {
+      width: 420px;
+
+      li {
+        width: 420px;
+      }
+    }
   }
-  .location-uggestions-icon {
-    width: 32px;
+
+  @media screen and (max-width: 520px) {
+    width: calc(100% - 2rem);
+
+    div {
+      width: 100%;
+
+      ul {
+        width: 100%;
+
+        li {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
-@media screen and (max-width: 576px) {
+/* @media screen and (max-width: 576px) {
   .CityList {
     margin: initial;
     margin-left: 1rem;
     width: 420px;
     left: 0;
+    ul {
+      width: 420px;
+    }
     li {
       width: 420px;
     }
   }
-}
+} */
 
-@media screen and (max-width: 520px) {
+/* @media screen and (max-width: 520px) {
   .CityList {
     width: calc(100% - 2rem);
     div {
@@ -61,4 +95,4 @@
       width: 100%;
     }
   }
-}
+} */
